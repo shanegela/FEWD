@@ -9,7 +9,6 @@
         background:url("images/background.png") repeat repeat;
       }
       header {
-        display:inline;
         background-color:#C4C4C4;
         position:fixed;
           top:0px;
@@ -54,6 +53,7 @@
       nav {
         padding:0;
         margin:0;
+        display:inline;
       }
       ul {
         padding:0;
@@ -63,27 +63,25 @@
       }
       li {
         display: inline;
-        padding: 0px 20px
+        padding: 0px 20px;
+        margin:0px 10px;
       }
     </style>
   </head>
   <body>
     <header>
-      <nav style="position:relative;">
         <img src="images/acme-corp.jpg"
           width="267px";
           height"73px";>
+      <nav style="position:absolute;
+                  top:30px;
+                  right:20px;
+      ">
         <ul>
-          <li style="position: absolute;
-              top:30px;
-              right:150px;"
-          >
+          <li>
             <a>Products</a>
           </li>
-          <li style="position: absolute;
-              top:20px;
-              right:20px;"
-          >
+          <li>
             <button
               type="button"
               name="buttonSignUp">
