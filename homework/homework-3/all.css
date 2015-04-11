@@ -3,13 +3,24 @@ html {
   background-image: url(../images/background.png);
   font-family: Trebuchet MS;
   font-size:12pt;
+  overflow-y:scroll;
 }
 header {
   background-color:#C4C4C4;
   padding:10px 30px;
+  margin: 0px;
   overflow:hidden;
+  position:fixed;
+    top:0;
+    left:0;
+  width: 100%;
 }
-header button {
+header a {
+  color: white;
+  text-shadow: gray 0 1px;
+  text-decoration: none;
+}
+.SignUp {
   background-color:#294CB2;
   padding: 10px 20px;
   border-radius: 5px;
@@ -17,11 +28,7 @@ header button {
   border:none;
   font-family: Trebuchet MS;
   font-size:12pt;
-}
-header a {
-  color: white;
-  text-shadow: gray 0 1px;
-  text-decoration: none;
+  margin: 0px;
 }
 body {
   margin:0;
@@ -36,7 +43,7 @@ main {
   box-shadow: 0px 0px 20px slategray;
   background-color:white;
   border-radius: 10px;
-  margin-top:60px;
+  margin-top:150px;
 }
 footer {
   border-top: 4px groove white;
@@ -47,8 +54,7 @@ footer {
 }
 nav {
   float:right;
-  padding: 20px 0 0 0;
-  margin: 0;
+  padding: 20px 50px 0 0;
 }
 .navList {
   display:flex;
@@ -58,7 +64,7 @@ nav {
   margin: 0;
   }
 .navList li {
-  margin: 0 0 0 50px;
+  margin: 0 0 0 30px;
   vertical-align:middle;
 }
 .product {
@@ -67,10 +73,10 @@ nav {
   padding:20px 0;
 }
 .productImageColumn {
-  flex:1;
+  flex:2;
 }
 .productDescColumn {
-  flex:3;
+  flex:5;
   padding: 0 0 0 20px;
 }
 .productImage {
