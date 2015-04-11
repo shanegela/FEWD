@@ -29,14 +29,14 @@ body {
 main, footer {
   margin:0 auto;
   max-width:660px;
-  padding:20px;
+  padding:20px 30px;
   }
 main {
   border: 1px solid lightgrey;
   box-shadow: 0px 0px 20px slategray;
   background-color:white;
   border-radius: 10px;
-  margin-top:100px;
+  margin-top:60px;
 }
 footer {
   border-top: 4px groove white;
@@ -60,4 +60,32 @@ nav {
 .navList li {
   margin: 0 0 0 50px;
   vertical-align:middle;
+}
+.product {
+  display:flex;
+  border-bottom:1px solid lightgrey;
+  padding:20px 0;
+}
+.productImageColumn {
+  flex:1;
+}
+.productDescColumn {
+  flex:3;
+  padding: 0 0 0 20px;
+}
+.productImage {
+  border: 5px ridge lightgrey;
+}
+.productDescColumn p {
+  margin-top:0;
+}
+.productDescColumn p span {
+  font-weight:bold;
+}
+.buttonAddToCart {
+  background-color:firebrick;
+  border:none;
+  border-radius:5px;
+  color:white;
+  padding:10px
 }
