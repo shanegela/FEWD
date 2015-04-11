@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CSS Layout Intro</title>
+	<link rel="stylesheet" href="layout-intro.css">
+</head>
+<body>
+
+<h1>CSS Layout Intro</h1>
+
+<h2>Table</h2>
+<table>
+	<tr>
+		<td>Column 1</td>
+		<td>Column 2</td>
+		<td>Column 3</td>
+	</tr>
+</table>
+
+
+<h2>Float</h2>
+<section>
+	<div>Column 1</div>
+	<div>Column 2</div>
+	<div>Column 3</div>
+</section>
+
+
+<h2>Flexbox</h2>
+<ul>
+	<li>Column 1</li>
+	<li>Column 2</li>
+	<li>Column 3</li>
+</ul>
+
+
+<h2>Flexbox even columns</h2>
+<ul class="even-columns">
+	<li>Column 1</li>
+	<li>Column 2</li>
+	<li>Column 3</li>
+</ul>
+
+
+<h2>Flexbox - 200px sidebar</h2>
+<ul class="two-column">
+	<li class="sidebar">Column 1</li>
+	<li class="main">Column 2</li>
+</ul>
+
+
+<h2>Flexbox - four column design</h2>
+<ul class="four-column">
+	<li class="sidebar">Column 1</li>
+	<li class="main">Column 2</li>
+	<li class="sidebar">Column 3</li>
+</ul>
+
+
+<h3>3 Ways of setting the width of a flex child:</h3>
+
+<ol>
+	<li>By default, the width will be the width of the element's content (see first flex example).</li>
+	<li>Set a fixed width in pixels using the width property (see 200px sidebar example).</li>
+	<li>Set a portion width using the flex property (see four column example).</li>
+</ol>
+
+<p>* If you mix the width and the flex technique, than the flex portion is based on the remaining width after the fixed width is allocated (see 200px sidebar example).</p>
+
+
+</body>
+</html>

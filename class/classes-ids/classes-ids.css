@@ -1,0 +1,22 @@
+/* Element selector */
+ul {
+	color: brown;
+}
+
+
+/* Class selector - to differentiate two ul elements */
+.greater-apes {
+	font-size: 24px;
+}
+
+
+/* Class selector - to differentiate two ul elements */
+.lesser-apes {
+	font-size: 14px;
+}
+
+
+/* Two class selectors and a descendant selector */
+.greater-apes .person {
+	font-weight: bold;
+}

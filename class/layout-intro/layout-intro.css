@@ -1,0 +1,65 @@
+/* CSS Reset */
+/* ------------------------------- */
+ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+table {
+	border-collapse: collapse;
+}
+
+
+/* Tables */
+/* ------------------------------- */
+td {
+	background: skyblue;
+	padding: 10px;
+}
+
+/* Float */
+/* ------------------------------- */
+section {
+	overflow: hidden;
+}
+div {
+	float: left;
+	background: skyblue;
+	padding: 10px;
+}
+
+/* Flexbox */
+/* ------------------------------- */
+ul {
+	display: flex;
+}
+ul li {
+	background: skyblue;
+	padding: 10px;
+}
+
+/* Flexbox - even columns */
+/* ------------------------------- */
+.even-columns li {
+	flex: 1;
+}
+
+/* Flexbox two-column */
+/* ------------------------------- */
+.two-column .sidebar {
+	width: 200px;
+}
+.two-column .main {
+	flex: 1;
+	background: grey;
+}
+
+/* Flexbox four-column */
+/* ------------------------------- */
+.four-column .sidebar {
+	flex: 1;
+}
+.four-column .main {
+	flex: 2;
+	background: grey;
+}
