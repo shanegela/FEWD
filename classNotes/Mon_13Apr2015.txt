@@ -1,0 +1,57 @@
+Javascript Rules ***************
+1. Lines end with semicolon
+2. Some words are reserved
+3. Variables and function names can not start with a number
+4. Variables should be CamelCase (Example: FirstName)
+
+Variables *************
+  Can be: numbers, strings, booleans
+
+Function **************
+1. Input/Arguments
+  * infinite number of inputs
+2. Funtion/Body
+  * javascript code
+  * use operators/conditionals
+3. Output/Return
+  * only 1 output, but could be a list like an array
+  * you can only return from a function once
+
+Function Layout *******************
+function <function name> (arguments) {
+  <body>
+  return <output>;
+}
+
+Example *****************
+
+Function for pythagorm's theorem: a^2 + b^2 = c^2
+
+  Input: a, b
+  Body: a^2 + b^2
+  Output: c^2
+
+function longestSide (a,b) {
+  var result = (a*a) + (b*b);
+  return result;
+}
+
+How to call a function *********
+<functionName> (arguments);
+
+Example: 
+longestSide(3,4);
+
+Built-in functions ************
+alert
+  input: message (string)
+  output: none
+
+confirm
+  input: message (string)
+  output: ok/cancel (boolean: ok=true, cancel=false)
+
+Adding Javascript *******************88888888
+inline: onclick="alert('yo!')";
+internal: <script></script>
+external: <script scr="path/to/javascript.js"</script>

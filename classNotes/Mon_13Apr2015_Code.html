@@ -1,0 +1,64 @@
+<html>
+  <head>
+    <title>Acme Corporation</title>
+    <link rel="stylesheet" href="../homework/homework-3/all.css" media="screen">
+    <script charset="utf-8">
+      function fullName(firstName,lastName) {
+        var result = firstName + " " + lastName;
+        return result;
+      }
+    </script>
+</head>
+  <body>
+    <header>
+      <img src="../homework/homework-3/images/acme-corp.jpg"
+        alt="Acme Corporation Logo"
+        width="200px"
+        height="55px">
+      <nav>
+        <ul class="navList">
+          <li>
+            <a href="index.html">About ACME Corp</a>
+          </li>
+
+          <li>
+            <a href="products.html">Products</a>
+          </li>
+          <li>
+            <a class="SignUp" href="signup.html">Sign Up</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <h1>Sign Up</h1>
+      <form class="" action="index.html" method="post">
+          <div class="formField">
+            <label for="fFirstName">First Name</label>
+            <input id="fFirstName" type="text" name="fFirstName" value="" placeholder="Jane" required>
+          </div>
+          <div class="formField">
+            <label for="fLastName">Last Name</label>
+            <input id = "fLastName" type="text" name="fLastName" value="" placeholder="Doe">
+            </div>
+          <div class="formField">
+            <label for="fEmail">Email</label>
+            <input id="fEmail" type="email" name="fEmail" value="" placeholder="JaneDoe@gmail.com" required>
+            </div>
+          <div class="formField">
+            <label for="fPassword">Password</label>
+            <input id="fPassword" type="password" name="fPassword" value="">
+            </div>
+          <div class="formField">
+            <input id="fAgreement" type="checkbox" name="fAgreement" value="">
+            <label for="fAgreement">Agree to our terms of service</label>
+            </div>
+          <div class="formField">
+          <input type="submit" name="fSubmit" value="Sign Up">
+      </form>
+    </main>
+    <footer>
+      <p>Copyright, 2015</p>
+    </footer>
+  </body>
+</html>
