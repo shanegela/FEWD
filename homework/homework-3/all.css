@@ -9,11 +9,14 @@ header {
   background-color:#C4C4C4;
   padding:10px 30px;
   margin: 0px;
-  overflow:hidden;
+  overflow:auto;
   position:fixed;
     top:0;
     left:0;
   width: 100%;
+}
+header img {
+  float:left;
 }
 header a {
   color: white;
@@ -57,6 +60,7 @@ nav {
   padding: 20px 50px 0 0;
 }
 .navList {
+  display: -webkit-flex;
   display:flex;
   align-items:center;
   list-style:none;
@@ -68,15 +72,18 @@ nav {
   vertical-align:middle;
 }
 .product {
+  display: -webkit-flex;
   display:flex;
   border-bottom:1px solid lightgrey;
   padding:20px 0;
 }
 .productImageColumn {
   flex:2;
+  -webkit-flex: 2;
 }
 .productDescColumn {
   flex:5;
+  -webkit-flex: 5;
   padding: 0 0 0 20px;
 }
 .productImage {
@@ -93,5 +100,29 @@ nav {
   border:none;
   border-radius:5px;
   color:white;
-  padding:10px
+  padding:10px;
+}
+.formSignUp {
+  max-width:400px;
+  margin:0;
+}
+.formTwoColumns, .formOneColumn {
+  margin:10px;
+  overflow:auto;
+}
+.formTwoColumns input  {
+  -moz-border-radius:5px; /* Firefox */
+  -webkit-border-radius: 5px; /* Safari, Chrome */
+  border-radius:5px;
+  height:25px;
+  width:240px;
+  float:right;
+}
+.formTwoColumns label  {
+    float:left;
+}
+.formOneColumn input {
+  border-style:1px solid grey;
+  border-radius:2px;
+  padding:5px 10px;
 }
