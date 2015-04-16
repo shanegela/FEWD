@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+      function fPythagoren() {
+        var a = prompt("Pythagorean Theorem - What is a?");
+        var b = prompt("Pythagorean Theorem - What is b?");
+        a = parseInt(a);
+        b = parseInt(b);
+        var result = Math.sqrt((a*a) + (b*b));
+        alert("The longest side is " + result.toFixed(2));
+        return;
+      }
+      
+      function fCircum () {
+        var radius = prompt("What is the radius?");
+        radius = parseInt(radius);
+        var result = 2*Math.PI * radius;
+        alert("The circumference is " + result.toFixed(2));
+      }
+      
+      function fTemp () {
+        var tempF = prompt("What is the temp outside in Fahrenheit?");
+        tempF = parseInt(tempF);
+        var result = (((tempF - 32) * 5) / 9);
+        alert("In Celsius, that's " + result.toFixed(2));
+      }
+ 
+       function fHeight () {
+        var inches = prompt("How tall are you in inches?");
+        inches = parseInt(inches);
+        var result = inches * 2.64;
+        alert("In centimeters, that's " + result.toFixed(2));
+      }     
+      
+      //main
+      fPythagoren();
+      fCircum();
+      fTemp();
+      fHeight();
+      
+    </script>
+  </head>
+  <body>
+    <header>
+    </header>
+    <main>
+    </main>
+    <footer>
+    </footer>
+  </body>
+</html>
