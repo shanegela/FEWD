@@ -1,0 +1,94 @@
+Variables ******************************************
+- represent a value: "Named Value"
+- Example: Name = Age, Value = 29
+- They can represent strings, " "
+
+Javascript Rules ***********************************
+- Variable names can't start with #s
+- Variables are camel came: firstName
+
+var x = 1;
+// var is a reserved word that declares a variable
+// the computer reserves a memory slot for x
+// x is the variable
+// = is the operator to assign value on the right to the name on the left
+// 1 is the value, of data type integers
+// ; is the end of the statement
+
+var x = 0;
+if (x=0) -> this evaluates to false because x is assigned the value 0 which is false
+if (x==0) -> this evaluates to te because x equals 0
+
+Operators *******************************************
+Assign: =
+Math: + - * /
+Compare: ==
+Modulus: % (remainder, Example: 5 % 2 = 1)
+
+if (x % 2 == 0) {} // then it's even
+
+Functions *****************************************
+- Do stuff
+- It's a sausage thing: input - do work - output
+- Put code inside and later execute it
+- Always 1 output
+- Infinite number of inputs: arguments
+
+
+Exmaple:
+function fullName (fName, lName) {
+  var result = fName + " " + lName;
+  return result;
+}
+
+When a function is called, a memory space is reserved for the arguments.
+
+Debugging **********************
+1. break point
+2. "debugger" reserved word to stop execution
+
+Unspecified Arguments *******************
+- Arguments not passed into the function are set as undefined
+
+Data Type *************************
+Console Output to javascript is always string
+Javascript to console output is string unless you save the number
+
+var n "17"
+parseInt(n);
+-> returns "17" to the console
+
+var n "17"
+n = parseInt(n);
+n
+-> returns 17 to the console
+
+function add(nStr,mStr) {
+  var result;
+
+  parseInt(nStr);
+  parseInt(mStr);
+  result = nStr + mStr; // returns a string because you did not save the parseInt output
+
+  var nInt = parseInt(nStr);
+  var mInt = parseInt(mStr);
+  result = nInt + mInt; //returns an integer
+
+  return result;
+}
+
+Built-in Functions *************************
+
+Prompt
+- input: text, pre-defined value
+- output: text the user
+- Example: prompt("What would you like to eat");
+  - OK -> empty string, ""
+  - Cancel -> NULL, also considered nothing
+- Example: prompt("What would you like to eat", "Pizza");
+  - default value is pizza
+
+Alert
+- input: message
+- output: undefined
+- Example: alert("baby steps");

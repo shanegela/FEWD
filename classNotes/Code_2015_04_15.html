@@ -1,0 +1,62 @@
+<head>
+  <script>
+    function cleanUp(num1) {
+        var result = parseInt(num1);
+        if (isNaN(result)) { result = 100;}
+        return result;
+    }
+    function calcAdd (num1,num2) {
+      if (num1 === undefined) { num1 = 0;}
+      if (num2 === undefined) { num2 = 0;}
+      num1 = cleanUp(num1);
+      num2 = cleanUp(num2);
+      var result = num1 + num2;
+      return result;
+    }
+    function calcSubtract (num1, num2) {
+      num1 = cleanUp(num1);
+      num2 = cleanUp(num2);
+      var result = num1 - num2;
+      return result
+    }
+    function calcMultiply (num1, num2) {
+      var result = num1 * num2;
+      return result
+    }
+    function calcDivide (num1, num2) {
+      var result = num1 / num2;
+      return result
+    }
+    //var num1 = prompt("Enter the first number?");
+    //var num2 = prompt("Enter the second number?");
+    //var result = calcAdd(num1,num2);
+    //var response = num1 + " + " + num2 + " = " + result;
+    //alert(response);
+
+    var fName = prompt("What is your first name?");
+    var lName = prompt("What is your last name?");
+    var age = prompt("How old are you?");
+    var birthYr = calcSubtract(2015,age);
+    var response = "Your name is " + fName + " " + lName +
+        " and you were born in " + birthYr + ".";
+    alert(response);
+
+  </script>
+  <style media="screen">
+    div {
+      margin: 10px;
+    }
+  </style>
+</head>
+<body>
+<!--
+  <div class="">
+    <label for="num1">Number 1</label>
+    <input id="num1" type="text" name="num1" value="">
+  </div>
+  <div class="">
+    <label for="num2">Number 2</label>
+    <input id="num2" type="text" name="num2" value="">
+  </div>
+-->
+</body>

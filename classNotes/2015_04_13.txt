@@ -1,6 +1,6 @@
 Javascript Rules ***************
 1. Lines end with semicolon
-2. Some words are reserved
+2. Some words are reserved: function, var, return
 3. Variables and function names can not start with a number
 4. Variables should be CamelCase (Example: FirstName)
 
@@ -39,7 +39,7 @@ function longestSide (a,b) {
 How to call a function *********
 <functionName> (arguments);
 
-Example: 
+Example:
 longestSide(3,4);
 
 Built-in functions ************
