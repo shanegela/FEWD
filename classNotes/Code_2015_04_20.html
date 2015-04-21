@@ -1,0 +1,67 @@
+<header>
+  <style media="screen">
+    .sausage {
+      font-family:"Arial";
+      border: 1px solid black;
+      padding: 10px;
+    }
+  </style>
+</header>
+
+<body>
+  <p>
+    Meow!
+  </p>
+  <ul>
+    <li>First Item!</li>
+  </ul>
+  <p class="sausage">
+  </p>
+</body>
+
+<script type="text/javascript">
+  // Access the paragraph
+  var paragraph = document.querySelector("p");
+  // Set the paragraph's textContent
+  paragraph.textContent = "Woof!";
+
+  // select the list
+  var myList = document.querySelector("ul");
+  // create the child
+  var myListItem = document.createElement("li");
+  // add text content to the child
+  myListItem.textContent = "Second Item";
+  // append child to parent
+  myList.appendChild(myListItem);
+
+
+  // Add image to the page
+  //select the p element with class sausage
+  var mySausage = document.querySelector(".sausage")
+  //create the img element
+  var myImg = document.createElement("img");
+  // set attributes for the img element: src, width, height, alt
+  myImg.setAttribute("src","http://www.homefoodsafety.org/vault/2499/web/sausage-v.SM.jpg");
+  myImg.setAttribute("width","837");
+  myImg.setAttribute("height","686");
+  myImg.setAttribute("alt","My Sausage");
+  //append img to parent
+  mySausage.appendChild(myImg);
+
+  // Add a link to the page
+  //create the anchor element
+  var myLink = document.createElement("a")
+  // set the anchor elements
+  myLink.setAttribute("href","http://en.wikipedia.org/wiki/Sausage");
+  myLink.setAttribute("target","_blank");
+  myLink.setAttribute("title","About Sausages");
+  // set the text
+  myLink.textContent="Sausages";
+  // append the anchor
+  mySausage.appendChild(myLink);
+
+var anchorListItem = document.createElement("li")
+anchorListItem.appendChild(myLink);
+myList.appendChild(anchorListItem);
+
+</script>

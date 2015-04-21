@@ -1,0 +1,83 @@
+Comments *****************
+  // javascript
+  /* CSS */
+  <!-- html -->
+  Short Cut: <Ctrl>  + /
+
+HTML *********************************
+  Block Elements: header, p, ul
+  - header is a container of key/value pairs
+  - <header ID="global-nav" class="...">
+    </header>
+  Generic Block container: div
+  - identified by ID or Classes
+
+Javascript *****************************
+  Objects
+  - container of 1) variables 2) key/value pair 3) home for code
+  - var <objectName> {
+      <key>:<value>,
+      <key>:<value>
+    };
+  - Example: see objects.html
+  - Object values are access with "."
+    Example: myPerson.firstName
+// myPerson
+// Key         ||    Value
+// firstName         NULL -> "Avand"
+// lastName          NULL -> "Amiri"
+// fullName          function
+
+** firstName and lastName are properties or attributes of an object
+** fullName is a method - a method defines the way the boject behaves
+** this - reserved word that refers to object of the method
+   Note: It changes based on where the compiler is.  If you just type "this" into the console, this is the window
+
+
+NULL vs Undefined *******************
+  null means nothing
+  undefined means never set
+
+Pre-defined (built-in) Objects *************
+1) Document
+  - where everything on the page lives
+  - querySelector(): get an element on the page
+      output: an element
+      input: any valid CSS selector #tweets, .first-item
+  - createElement(): create an element
+      output: an element
+2) Window
+    - alert()  Note: technically you're typing Window.alert();
+    - prompt()
+    - parseInt()
+    - parseFloat()
+3) Element
+  - Home for p, header, form, main, ul
+  - elements have key/value pair
+  - textcontext - text content inside element (Example: <p>Hello World!</p>)
+
+* document.querySelector(<a css selector>)
+  - returns an eleement matching the CSS selector
+
+* document.createElement(<tag name>)
+  - returns a new element given a tag name
+
+* <element>.textContent
+  - text on teh page
+
+* <parent element>.appendChild(<child element>);
+  - adds the given element to the page as a child of the element it is called on
+  - only works on element objects and not document objects or window
+
+* element.setAttribute(<attribute name>,<attribute value>)
+* element.getAttribute
+
+How to Add an Element to a Page ******
+1. create the element
+    document.createElement(<tag>);
+2. set any attributes
+    <tag>.setAttribute(<name>,<value>);
+3. set the text conent
+    <tag>.textContent = "<text>";
+4. add to the parent
+    <parent>.appendChild(<child>);
