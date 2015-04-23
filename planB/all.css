@@ -1,0 +1,59 @@
+html {
+  background-color: #EEEDEC;
+  font-family: Trebuchet MS;
+  font-size:12pt;
+  overflow-y:scroll;
+}
+header {
+  background-color:#C4C4C4;
+  padding:10px 30px;
+  margin: 0px;
+  overflow:auto;
+  position:fixed;
+    top:0;
+    left:0;
+  width: 100%;
+}
+
+header a {
+  color: white;
+  text-decoration: none;
+}
+
+body {
+  margin:0;
+}
+nav {
+  float:right;
+  padding: 20px 50px 0 0;
+}
+.navList {
+  display: -webkit-flex;
+  display:flex;
+  align-items:center;
+  list-style:none;
+  padding-top: 0;
+  margin: 0;
+  }
+.navList li {
+  margin: 0 0 0 30px;
+  vertical-align:middle;
+}
+
+section {
+  margin: 150 0;
+}
+img {
+  margin: 0px;
+  padding:0px;
+}
+.game {
+  border: 1px solid black;
+  border-radius: 1000px;
+  padding:41px 67px;
+  display:inline;
+}
+.maindiv {
+  margin:150px 10px;
+  border: 1px solid red;
+}
