@@ -1,0 +1,74 @@
+variable
+  - analogy: container, bucket
+  - var myVar = <value>
+
+function
+  - analogy: sausage factory
+  - input: infinite number of arguments
+  - body: do work
+  - output: single output
+  - function <name> (<arg1>,<arg2>,...<argx>) {
+        <function code>
+    }
+  - <arg1> is a variable name that becomes a pointer to the variables passed in
+
+DOM manipulation ******************************
+  DOM: document object model
+  1. DOM is the HTML tree is stored inside a DOM
+     HTML
+        -> Head
+          -> Title
+        -> Body
+          -> p -> class: "important"
+          -> button-> events: click.doSomething();
+  2. DOM Manipulation functions
+    element.textContent = "..."
+    element.setAttribute(<key>,<value>);
+    element.getAttribute(<key>);
+    element.appendChild(element02);
+
+    doc.createElement(<tag>);
+    var element = doc.querySelector(<css selector>);
+    - Note: query selector selects 1 element at a time, so if you select a class, query selector selects the first element of the class
+    - css selector: # id, . class
+
+Example ******************************************
+Add a new <p> to the <body>
+1.  select the body
+  var elBody = doc.querySelector("body");
+2.  create the element
+  var elP = doc.createElement("p");
+3.  set the text content
+  elP.textContent = "This is my paragraph.";
+4.  append <p> to the body
+  elBody.appendChild(elP);
+
+Optional: You can do step 3 after step 4;
+  - Step 3, Step 4: if html loads slowly, you could potentially see an empty paragraph that then fills up
+  - Step 4, Step 3: the paragraph text is already set before the html loads
+
+Event Handling (aka Event Binding)***************************************************
+1.  You need an element
+2.  A function referred to as the "event handler"
+    * all event handlers take an argument, mouse event, which has the meta data tied to the event
+      - example: clientx, clienty, triggered
+    * you should never call the function itself because you never know when the event occurred
+3.  Event - the even that occurs on to the element that calls the event handler
+  * depending on the element, you have different events available to you.
+    * example 1: button -> click
+    * example 2: form -> submit
+    * example 3: input -> focus, blur
+    * example 4: all elements -> click, mousein, mouseout, keypress
+    * example 5: for touch screen: touchstart, touchend
+  * You need to set the event handler using function: addEventListner (similar to setAttribute)
+    * Example: <element>.addEventListner(<event>,<event handler>)
+    * <event handler> is like a variable so it's not in double quotess
+
+Example:
+var myButton = document.querySelector("button");
+
+function buttonClicked(clickEvent) {
+  alert("You clicked the button");
+}
+
+button.addEventListner("click", buttonClicked)

@@ -70,13 +70,17 @@ Pre-defined (built-in) Objects *************
   - only works on element objects and not document objects or window
 
 * element.setAttribute(<attribute name>,<attribute value>)
-* element.getAttribute
+  Ex. element.setAttribute("href","http:...");
+* element.getAttribute(<attribute name>)
+  - returns the value of the key
+  element.getAttribute("href") -> returns "http..."
+  - example use case, to get the element ID
 
 How to Add an Element to a Page ******
 1. create the element
     document.createElement(<tag>);
 2. set any attributes
-    <tag>.setAttribute(<name>,<value>);
+    <tag>.setAttribute(<key/name>,<value>);
 3. set the text conent
     <tag>.textContent = "<text>";
 4. add to the parent
