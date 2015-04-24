@@ -1,0 +1,99 @@
+<style>
+body { font-size: 20px; font-family: sans-serif; }
+
+td { width: 100px; text-align: center; }
+.placeholder, button { width: 100%; }
+.placeholder { height: 23px; border: 1px solid #bababa; border-radius: 3px; }
+button { cursor: pointer; border: 1px solid #58c0f5; color: #58c0f5; background-color: white; font: inherit; }
+button { background-color: #58c0f5; color: white; border-radius: 3px; }
+</style>
+
+<table>
+  <tr>
+    <td>
+      <div id="first-operand" class="placeholder" contenteditable></div>
+    </td>
+    <td>
+      <div id="second-operand" class="placeholder" contenteditable></div>
+    </td>
+    <td>
+      =
+    </td>
+    <td>
+      <div id="result" class="placeholder"></div>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <button id="add-button" class="inverted-button">+</button>
+    </td>
+    <td>
+      <button id="subtract-button" class="inverted-button">-</button>
+    </td>
+    <td>
+      <button id="multiply-button" class="inverted-button">*</button>
+    </td>
+    <td>
+      <button id="divide-button" class="inverted-button">/</button>
+    </td>
+  </tr>
+</table>
+
+<script>
+
+function getOperand(operand) {
+  // returns operand 1 or operand 2
+  if (operand === 1) {
+    var num = document.querySelector("#first-operand");
+  } else {
+    var num = document.querySelector("#second-operand");
+  }
+  var result = parseFloat(num.textContent);
+  return result;
+}
+
+function displayResult(result, selector) {
+// displays result in the specified CSS selector
+  var resContainer = document.querySelector(selector);
+  resContainer.textContent = result;
+}
+
+function addButtonClicked(e) {
+  var num1 = getOperand(1);
+  var num2 = getOperand(2);
+  var result = num1 + num2;
+  displayResult(result,"#result");
+}
+
+function subButtonClicked(e) {
+  var num1 = getOperand(1);
+  var num2 = getOperand(2);
+  var result = num1 - num2;
+  displayResult(result,"#result");
+}
+
+function mulButtonClicked(e) {
+  var num1 = getOperand(1);
+  var num2 = getOperand(2);
+  var result = num1 * num2;
+  displayResult(result,"#result");
+}
+
+function divButtonClicked(e) {
+  var num1 = getOperand(1);
+  var num2 = getOperand(2);
+  var result = num1 / num2;
+  displayResult(result,"#result");
+}
+
+var addButton = document.querySelector("#add-button");
+var subButton = document.querySelector("#subtract-button");
+var mulButton = document.querySelector("#multiply-button");
+var divButton = document.querySelector("#divide-button");
+
+addButton.addEventListener("click",addButtonClicked);
+subButton.addEventListener("click",subButtonClicked);
+mulButton.addEventListener("click",mulButtonClicked);
+divButton.addEventListener("click",divButtonClicked);
+
+</script>
