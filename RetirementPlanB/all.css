@@ -44,12 +44,16 @@ nav {
 section {
   margin: 150 0;
 }
-.maindiv {
-  padding:0;
+.maindiv, .gamediv {
+  padding:30px 0px;
   margin:0;
   background-image: linear-gradient(#36C5F4,#ffffff);
-  display:flex;
   border-radius:20px;
+  overflow:hidden;
+  box-sizing: border-box;
+}
+.gamediv {
+  display:flex;
 }
 .emptyGame {
   flex:1;
@@ -57,7 +61,8 @@ section {
 .game {
   width: 200px;
   height: 200px;
-  margin: 10px;
+  margin: 0px 10px;
+  /*border: 1px solid black;*/
 }
 .circle {
   width:100%;
@@ -78,4 +83,20 @@ section {
   left: 50%;
   margin-right: -50%;
   transform: translate(-50%, -50%)
+}
+.jackpot {
+  border: 1px solid black;
+  box-shadow: 0px 0px 20px slategray;
+  box-sizing: border-box;
+  border-radius: 20px;
+  margin:0px auto;
+  max-width:60vw;
+  padding:0px;
+  background-color: black;
+  color: red;
+  text-align:center;
+  font-size:40px;
+  font-size:8vw;
+  font-weight:bold;
+  font-family:digital, courier;
 }
