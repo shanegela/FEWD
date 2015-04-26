@@ -136,10 +136,10 @@ section {
   -webkit-box-shadow: inset -25px -25px 30px rgba(192, 192, 192, .7);
 }
 .megaball {
-  background: #5454FF;
-  box-shadow: inset -25px -25px 30px rgba(51, 51, 134,.7);
-  -webkit-box-shadow: inset -25px -25px 30px rgba(51, 51, 134,.7);
-  -moz-box-shadow: inset -25px -25px 30px rgba(51, 51, 134,.7);
+  background: #1A4199;
+  box-shadow: inset -25px -25px 30px rgba(11, 33, 82,.7);
+  -webkit-box-shadow: inset -25px -25px 30px rgba(11, 33, 82,.7);
+  -moz-box-shadow: inset -25px -25px 30px rgba(11, 33, 82,.7);
 }
 
 .ball:after, .megaball:after {
