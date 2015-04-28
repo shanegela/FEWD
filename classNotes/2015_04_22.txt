@@ -71,4 +71,4 @@ function buttonClicked(clickEvent) {
   alert("You clicked the button");
 }
 
-button.addEventListner("click", buttonClicked)
+myButton.addEventListner("click", buttonClicked)

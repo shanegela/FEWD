@@ -1,0 +1,68 @@
+<!--
+Add an element to the page
+1. Add an element to the page
+  a. Does the element have content?
+  b. Are there any attributes that need to be set?
+  c. Where does it go, if it's being created?
+
+2. Adding behavior to an element
+  a. Which  element?
+  b. Which function?
+
+3. Changing something about an existing element
+  a. Which element?
+  b. What are you changing?
+
+4. Go get data from server
+  ajax
+
+5. Given a set of things, do something to each of them
+-->
+
+<script>
+// Adding an element to the page
+// 1. Create the element
+var child = document.createElement('li');
+// 2. Append teh element to some element that is already there
+var parent = document.querySelector('ul');
+parent.appendChild(child);
+child.textContent = "Do my homeowrk, like Avand told me to.";
+child.setAttribute("class","todo-item");
+
+// Yields:
+//<ul>
+//    <li class="todo-item">Do my homework...</li>
+//</ul>
+
+
+// Adding behavior to an element
+// 1. which element do you want to attach behavior to?
+var button = document.querySelector("button#click-me");
+// 2. What happens when the event occurs?
+function sayCursorLocation(e) {
+  var x = e.clientX;
+  var y = elclientY;
+  alert("Your mouse is at: " + x + ", " + y);
+}
+// 3. Attaching the event handler to the element
+button.addEventListener("click", sayCursorLocation)
+
+
+// Manipulating an existing element
+// 1. Get the element you want to change
+var element = document.querySelector("img#logo");
+// 2. Change an attribute
+element.setAttribute("src","http://example.com/images/small-logo.png");
+
+
+
+
+</script>
+<style>
+  button.import {
+  /* button with a class of important*/
+  }
+  button#clickme {
+  /* button with an ID of click-me*/
+  }
+</style>

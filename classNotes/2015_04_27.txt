@@ -1,0 +1,148 @@
+<button id="click-me">
+  Click Me!
+</button>
+
+Pseudo Code: *******************
+  1. Select the element
+  2. Define the event handler
+  3. attach an event listner
+
+Note: (inline css):  <button onclick="sayHello();">
+
+Code: ******************************
+  var myButton = document.querySelector("#click-me");
+
+  function sayHello(e) {
+    alert("Hello World!");
+  }
+
+  myButton.addEventListner("click", sayHello);
+
+Alt Code: ************************
+
+document.querySelector("#click-me").addEventListner("click",function() {alert("Hello World!");});
+
+Notes:
+* document is getting called on Window
+* un-named function or anonymous function call
+* alternate to querySelector: getElementById
+
+Event handler meta data *********************
+<a href="/about">About Us</a>
+var a = <link>
+a.addEventListner("click",showDialog);
+
+Body -> A -> Href = "/about"
+          -> onClick -> follow href
+                        = window.location = a.getAttribute("href")
+
+Element has built in event handler.  Example: a link has a default action to go to the path
+Forms by default as a submit event handler
+  -> get all keys & values
+  -> send to forms action
+
+* e is a special type of object, an event object
+timeStamp -> returns the time the event got fired (property)
+clientX -> coordinates on x-axis where the mouse clicked (property)
+clientY -> coordinates on y-axis where the mouse clicked (property)
+preventDefault(); method that takes no arguments
+keycode -> key number of key that was pressed
+
+function showDialog (e) {
+  e.preventDefault(); // doesn't have to be first because default behavior happens after
+// you're event handlers
+}
+
+object
+* a collection of properties and methods
+
+example: a car is an object
+- property: number of doors (data type: number)
+- property: color (data type: string)
+- property: model (data type: string)
+- property: engine (potentially another object)
+            - property: number of cyclinders (data type: number)
+            - property: horsepower (data type: number)
+            - proprety: top speed (data type: number)
+- property: interior (another object)
+            - property: material (data type: string)
+            - property: color (data type: string)
+- property: production year (number)
+
+- methods are the verbs (the behavior)
+- methods: start()
+- methods: lock()
+- methods: stop()
+- methods: unlock()
+- methods: fillGas()
+
+//object literal, literally refers to the value;
+var car = {
+  color: "red",
+  make: "Saturn",
+  year: 1995,
+  model: "Vue",
+  beBetter: function  {
+  this.make = "ferrari";
+  }
+}; (object with no defaults)
+var num = 1; (number with defaults)
+car.beBetter();
+
+Object Library ******************************88
+1. generic object: var o = {}
+2. string object:
+    - property: length (data type: number)
+    - method: trimLeft
+    - method: trimRight
+3. number object:
+    - method: toString()
+4. window object:
+    - property: innerWidth (data type: number)
+    - property: innerHeight (data type: number)
+    - property: document
+    - method: alert()
+    - method: prompt() -> returns string
+    - method: parseInt()
+    - method: confirm() -> returns boolean
+    - method: parseFloat()
+5. document object: (DOM)
+    - method: querySelector()
+    - method: createEleemnt()
+    - method: getElementId()
+    - property: body
+6. element object (Example: body)
+    - property: textContent (string)
+    - property: value (string)  * for input elements
+    - method: appendChild
+    - method: setAttribute (returns: undefined)
+    - method: getAttribute (returns: string)
+    - method: addEventListner
+7. event object
+    - property: client x (data type: number)
+    - property: client y (data type: number)
+    - property: timestamp (number)
+    - property: target (returns element that triggered event)
+      Example: var button = e.target;
+    - method: preventDefault()
+
+Javascript Receipes *******************************
+
+Add an element to the page
+1. Add an element to the page
+  a. Does the element have content?
+  b. Are there any attributes that need to be set?
+  c. Where does it go, if it's being created?
+
+2. Adding behavior to an element
+  a. Which  element?
+  b. Which function?
+
+3. Changing something about an existing element
+  a. Which element?
+  b. What are you changing?
+
+4. Go get data from server
+  ajax
+
+5. Given a set of things, do something to each of them

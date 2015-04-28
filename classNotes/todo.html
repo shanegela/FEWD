@@ -1,0 +1,43 @@
+<head>
+  <title>To Do List</title>
+</head>
+<body>
+  <form id="new-todo-item-form">
+      <input type="text" id="new-todo-item-input" placeholder="What do you need to do?">
+      <button type="submit">Create todo</button>
+  </form>
+
+  <ul id="todo-list">
+  </ul>
+</body>
+
+<script>
+//  When the form is submitted:
+// Grab the input from text input
+// Add a list item to the list
+//   - create the li
+//   - set the content
+//   - add it to the list
+// Add an event listener to the form submit
+// stop default form submission (default form behavior: reload page)
+// reset text box
+
+var submitToDo = document.querySelector("#new-todo-item-form");
+
+function addListItem(e) {
+  var newToDo = document.querySelector("#new-todo-item-input");
+  var childLI = document.createElement("li");
+  childLI.textContent = newToDo.value;
+  newToDo.value = "";
+  submitToDo.appendChild(childLI);
+  e.preventDefault();
+
+
+}
+
+
+// When the page loads:
+//  Add an event listener to the form submit
+submitToDo.addEventListener("submit",addListItem);
+
+</script>
