@@ -1,6 +1,9 @@
 <ul>
 </ul>
 
+<ul id="Test">
+</ul>
+
 <script>
 var favoriteMovies = [
   { name: 'Cool Runnings', year: 1993, url: 'http://www.imdb.com/title/tt0106611/' },
@@ -12,5 +15,24 @@ var favoriteMovies = [
 // <li>
 //   <a href="http://www.imdb.com/title/tt0106611/">Cool Runnings</a>
 // </li>
+
+var myList = document.querySelector("ul")
+
+function addItemToList (item) {
+  var movie = document.createElement("li");
+  var movielink = document.createElement("a");
+  movielink.setAttribute("href",item.url);
+  movielink.setAttribute("target","_blank");
+  movielink.textContent = item.name;
+  var movieyear = document.createElement("span");
+  movieyear.textContent = " (" + item.year + ")";
+  movie.appendChild(movielink);
+  movie.appendChild(movieyear);
+  myList.appendChild(movie);
+}
+
+for (var i=0; i< favoriteMovies.length; i=i+1) {
+  addItemToList(favoriteMovies[i]);
+}
 
 </script>

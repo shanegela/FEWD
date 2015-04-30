@@ -1,0 +1,68 @@
+Body
+  Header
+    Form
+      Input[type=text]
+      Button[type=submit]
+  Main
+    ul #todo-list
+      li.todo-item
+      li.todo-item
+
+
+On an <input> element, the type = text allows us to access the value to set it as an element's text content.
+Form -> have a submit event that allows us to tie an event handler to the event
+The event submit can only happen on a form
+
+form submit allows the submit to listen to the "enter"
+versus button click only works when you click the button
+
+Arrays *******************************
+generic object:
+
+  var car = {
+    color: "blue",
+    make: "corvet",
+    <key>: <value>
+  }
+
+instructors = ["Avand", "Rob", "Sandi"];
+
+New object type: array
+  properties: length -> instructors.length
+  methods:
+    1) sort()
+    2) push() - add item to end of array
+    3) pop() - takes last thing off the end of the array, no arguments
+
+var a = [ 1,2,3];  [1,2,3] is called an object literal
+object literal because the syntax constructs the object for you, unlike something like new Date
+
+a.length -> returns 3
+a.push(4);  -> array is no [1,2,3,4]
+a.pop(); -> array is now [1,2,3]
+a.pop() returns the item you popped off -> 4
+arrays: start at index 0;
+stored as a generic object
+
+var a ={
+  0: "Avand",
+  1: "Rob",
+  2: "Sandi"
+}
+
+To access the value: array[<index>]
+
+for loop ********************************
+for (initializer, condition, final expression ) {
+}
+}
+  * initializer - executed once
+  * condition - do work if condition is true
+  * final expression - execute after work is done
+
+for ( var i=0; i < a.length, i = i+ 1) {
+
+}
+
+every other item: i = i + 2
+skip first item: var i = 1

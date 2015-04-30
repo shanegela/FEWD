@@ -2,15 +2,24 @@
   <title>To Do List</title>
 </head>
 <body>
-  <form id="new-todo-item-form">
-      <input type="text" id="new-todo-item-input" placeholder="What do you need to do?">
-      <button type="submit">Create todo</button>
-  </form>
+  <header>
+    <form id="new-todo-item-form">
+        <input type="text" id="new-todo-item-input" placeholder="What do you need to do?">
+        <button type="submit">Create todo</button>
+    </form>
 
-  <ul id="todo-list">
-  </ul>
-</body>
+    <input type="text" id="inputTest" placeholder="Submit vs Click">
+    <button type="button" id="buttonTest" name="buttonTest">click me</button>
 
+  </header>
+  <main>
+    <hr>
+    <ul id="todo-list">
+      <!--
+        <li class="todo-item">Homework</li>
+      -->
+    </ul>
+  </main>
 <script>
 //  When the form is submitted:
 // Grab the input from text input
@@ -22,22 +31,43 @@
 // stop default form submission (default form behavior: reload page)
 // reset text box
 
-var submitToDo = document.querySelector("#new-todo-item-form");
+var todoForm = document.querySelector("#new-todo-item-form");
+var todoList = document.querySelector("#todo-list");
+var newToDo = todoForm.querySelector("#new-todo-item-input");
 
-function addListItem(e) {
-  var newToDo = document.querySelector("#new-todo-item-input");
-  var childLI = document.createElement("li");
-  childLI.textContent = newToDo.value;
-  newToDo.value = "";
-  submitToDo.appendChild(childLI);
-  e.preventDefault();
-
-
+function createToDoItem(value) {
+  var newItem = document.createElement("li");
+  newItem.setAttribute("class","todo-item");
+  newItem.textContent = value;
+  return newItem;
 }
 
+function formSubmitted(e) {
+  var newItem = createToDoItem(newToDo.value);
+  todoList.appendChild(newItem);
+  todoForm.reset();
+  e.preventDefault();
+  newToDo.focus();
+}
 
 // When the page loads:
 //  Add an event listener to the form submit
-submitToDo.addEventListener("submit",addListItem);
+todoForm.addEventListener("submit",formSubmitted);
+
+
+
+// if you hit enter while in the input box
+// nothing happens, until you actually click the button
+// this is why the form is preferred
+var buttonTest = document.querySelector("#buttonTest");
+
+function buttonClicked (e) {
+  alert("hellow");
+}
+
+buttonTest.addEventListener("click",buttonClicked);
+
+
 
 </script>
+</body>

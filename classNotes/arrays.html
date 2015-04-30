@@ -16,4 +16,32 @@
 
 <script>
 // Copy the values from the first list into the second list but sort them!
+
+function addToList(id,array) {
+  var item = document.querySelector(id);
+  array.push(item.value);
+}
+
+function setContent (item,Content) {
+  var elem = document.querySelector(item);
+  elem.textContent = Content;
+}
+
+var myArray = [];
+
+addToList("#item-1",myArray);
+addToList("#item-2",myArray);
+addToList("#item-3",myArray);
+addToList("#item-4",myArray);
+addToList("#item-5",myArray);
+
+myArray.sort();
+myArray.reverse();
+
+setContent("#item-a",myArray.pop());
+setContent("#item-b",myArray.pop());
+setContent("#item-c",myArray.pop());
+setContent("#item-d",myArray.pop());
+setContent("#item-e",myArray.pop());
+
 </script>
