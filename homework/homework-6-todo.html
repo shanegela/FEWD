@@ -1,0 +1,61 @@
+<head>
+  <title>To Do List</title>
+</head>
+<body>
+  <header>
+    <form id="new-todo-item-form">
+        <input type="text" id="new-todo-item-input" placeholder="What do you need to do?">
+        <button type="submit">Create todo</button>
+    </form>
+
+  </header>
+  <main>
+    <hr>
+    <button type="button" id ="buttonSort" name="button">Sort A-Z</button>
+    <ul id="todo-list">
+      <li class="todo-item">c</li>
+      <li class="todo-item">b</li>
+      <li class="todo-item">a</li>
+    </ul>
+  </main>
+<script>
+
+var todoForm = document.querySelector("#new-todo-item-form");
+var todoList = document.querySelector("#todo-list");
+var newToDo = todoForm.querySelector("#new-todo-item-input");
+var buttonSort = document.querySelector("#buttonSort");
+
+function sortListClicked(e) {
+  var todos = [];
+  for (todoIdx = 0; todoList.firstChild; todoIdx = todoIdx + 1) {
+    var todoItem = todoList.removeChild(todoList.firstChildElement);
+    todos.push(todoItem.textContent);
+  }
+  todos.sort();
+  for (todoIdx = 0; todoIdx < todos.length; todoIdx = todoIdx + 1) {
+    var newItem = createToDoItem(todos[todoIdx]);
+    todoList.appendChild(newItem);
+  }
+}
+
+function createToDoItem(value) {
+  var newItem = document.createElement("li");
+  newItem.setAttribute("class","todo-item");
+  newItem.textContent = value;
+  return newItem;
+}
+
+function formSubmitted(e) {
+  var newItem = createToDoItem(newToDo.value);
+  todoList.appendChild(newItem);
+  todoForm.reset();
+  e.preventDefault();
+  newToDo.focus();
+}
+
+
+todoForm.addEventListener("submit",formSubmitted);
+buttonSort.addEventListener("click",sortListClicked);
+
+</script>
+</body>
