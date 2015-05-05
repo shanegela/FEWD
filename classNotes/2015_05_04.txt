@@ -1,0 +1,54 @@
+Conditionals: comparison of two things
+  equal: A == B
+  not equal: A != B
+  greater than: A > B (>=: greater than or equal to)
+  less than: A < B  (<= less than or equal to)
+returns a boolean: true or false
+
+
+var a = 1;
+var b = "1";
+
+(a == b) -> true (does conversion for you)
+(a === b) -> false
+
+conditionals allow you to branch your code
+
+1. click add item
+
+2. check if item exist in list
+  a. grab array of all items
+  b. loop through each item
+  c. if it doesn't exist, then add it
+
+3.
+
+if (conditional) {
+
+} else {
+
+}
+
+and: &&
+  example: if (a[i]>=300 && a[i] <= 700)
+  condition 1: true and condition 2: true == true
+  condition 1: true and condition 2: false == false
+  condition 1: false and condition 2: true == false
+  condition 1: false and condition 2: false == false
+
+or: ||
+  example: if (a[i] <= 300 || a[i] <= 700)
+condition 1: true or condition 2: true == true
+condition 1: true or condition 2: false == true
+condition 1: false or condition 2: true == true
+condition 1: false or condition 2: false == false
+
+
+query selector all *********************
+
+document.querySelector("ul") -> returns one element
+document.querySelectorAll("li") -> returns a node list
+  - a node list is very array-ish
+  - has a length, which means we can move through it
+  - "li" returns a node list of li
+  - "li input" returns a node list of inputs under li

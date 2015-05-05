@@ -1,0 +1,30 @@
+<ul>
+  <li><input type="text" id="item-1" value="tomatoes"></li>
+  <li><input type="text" id="item-2" value="avocado"></li>
+  <li><input type="text" id="item-3" value="bananas"></li>
+  <li><input type="text" id="item-4" value="celery"></li>
+  <li><input type="text" id="item-5" value="apples"></li>
+</ul>
+
+<ol>
+</ol>
+
+<script>
+var groceries = [];
+
+var inputs = document.querySelectorAll("li input");
+for (var i = 0;  i < inputs.length; i++) {
+  var input = inputs[i];
+  groceries.push(input.value);
+}
+
+groceries.sort();
+
+var vegList = document.querySelector("ol");
+for (var i=0;i<groceries.length;i++) {
+  var veg = document.createElement("li");
+  veg.textContent = groceries[i];
+  vegList.appendChild(veg);
+}
+
+</script>

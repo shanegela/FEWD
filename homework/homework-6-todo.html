@@ -27,8 +27,9 @@ var buttonSort = document.querySelector("#buttonSort");
 
 function sortListClicked(e) {
   var todos = [];
-  for (todoIdx = 0; todoList.firstChild; todoIdx = todoIdx + 1) {
-    var todoItem = todoList.removeChild(todoList.firstChildElement);
+  var exisitingToDo = document.querySelectorAll("li");
+  for (todoIdx = 0; todoIdx < exisitingToDo.length; todoIdx = todoIdx + 1) {
+    var todoItem = todoList.removeChild(exisitingToDo[todoIdx]);
     todos.push(todoItem.textContent);
   }
   todos.sort();

@@ -1,0 +1,97 @@
+<body>
+</body>
+<script>
+var a = [509, 707, 490, 866, 826, 924, 949, 530, 915, 890, 677, 751, 227, 309, 532, 259, 982, 407, 229, 764, 925, 878, 925, 731, 898, 410, 117, 83, 306, 909, 224, 613]
+
+// What's the largest number in the array?
+function largestNumber (Numbers) {
+  var max = 0;
+  for (i = 0; i < Numbers.length; i++) {
+    if (i == 0){
+      max = Numbers[i];
+    }
+    else {
+      if (Numbers[i] > max) {
+        max = Numbers[i];
+      }
+    }
+  }
+  return max;
+}
+
+// What's the sum of all the numbers in the array?
+function calcSum (Numbers) {
+  var sum = 0;
+  for (i = 0; i < Numbers.length; i++) {
+    sum = sum + Numbers[i];
+  }
+  return sum;
+}
+
+// How many numbers greater than 500?
+function cntThresh (Numbers, thresh) {
+  var cnt = 0;
+  for (i = 0; i < Numbers.length; i++) {
+    if (Numbers[i] > thresh) {
+      cnt = cnt + 1;
+    }
+  }
+  return cnt;
+}
+
+
+// Which numbers are between 300 and 700?
+function cntTopBottomThresh(Numbers,threshBot,threshTop) {
+  var cnt = 0;
+  for (i = 0; i < Numbers.length; i++) {
+    if (Numbers[i] >= threshBot && Numbers[i] <= threshTop) {
+      cnt = cnt + 1;
+    }
+  }
+  return cnt;
+}
+
+// How many even numbers?
+function cntEven(Numbers) {
+  var cnt = 0;
+  for (var i = 0; i < Numbers.length; i++) {
+    if ((Numbers[i] % 2) == 0) {
+      cnt = cnt + 1;
+    }
+  }
+  return cnt;
+}
+
+var result = 0;
+var body = document.querySelector("body");
+// What's the largest number in the array?
+result = largestNumber(a);
+var p = document.createElement("p");
+p.textContent = "The largest number in the array is " + result + ".";
+body.appendChild(p);
+
+// What's the sum of all the numbers in the array?
+result = calcSum(a);
+var p = document.createElement("p");
+p.textContent = "The sum of all numbers is " + result + ".";
+body.appendChild(p);
+
+// How many numbers greater than 500?
+result = cntThresh(a, 500);
+var p = document.createElement("p");
+p.textContent = "There are " + result + " numbers greater than 500.";
+body.appendChild(p);
+
+// Which numbers are between 300 and 700?
+result = cntTopBottomThresh(a,300,700);
+var p = document.createElement("p");
+p.textContent = "There are " + result + " numbers betwee 300 and 700.";
+body.appendChild(p);
+
+// How many even numbers?
+result = cntEven(a);
+var p = document.createElement("p");
+p.textContent = "There are " + result + " even numbers.";
+body.appendChild(p);
+
+</script>
