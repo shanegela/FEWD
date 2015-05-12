@@ -48,6 +48,7 @@ function createMovie (movie) {
   var movieLink = document.createElement("a");
   var movieDesc = document.createElement("span");
   movieLink.setAttribute("href",movie.url);
+  movieLink.setAttribute("target","_blank");
   movieLink.textContent = movie.name;
   var avgRating = calcMovieRating(movie.ratings);
   var numRatings = movie.ratings.length;
