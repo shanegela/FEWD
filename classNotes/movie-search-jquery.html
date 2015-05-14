@@ -35,18 +35,19 @@ function listMovies(results) {
 
   for (var i = 0; i < movies.length; i++) {
     var movie = movies[i];
+    var href = "http://www.imdb.com/title/" + movie["imdbID"];
+    var anchor = $("<a>").attr("href",href).text(movie["Title"]);
     var li = $("<li>");
-    var anchor = $("<a>");
-    anchor.attr("href", "http://www.imdb.com/title/" + movie["imdbID"]);
-    anchor.text(movie["Title"]);
-    li.append(anchor);
-    list.append(li);
+    li.append(anchor);//li.appendChild(anchor);
+    list.append(li);//list.appendChild(li);
   }
 }
 
 function formSubmitted(event) {
   event.preventDefault();
   get("http://omdbapi.com/?s=" + input.val(), listMovies);
+//$.get("http://omdbapi.com/?s=" + input.val(), listMovies);
+//remove get function
 }
 
 form.on("submit", formSubmitted);

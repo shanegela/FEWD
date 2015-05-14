@@ -30,6 +30,10 @@ jquery.com - JQuery is a JavaScript library
   jquery:  uses $ to define variables
 there is a different library that uses _
 
+jquery works on a collection.  it's arrayish with methods on it.
+$("a") is no longer an element but a collection.
+so you have to use the jquery functions instead of the javascript functions
+
 * append child
   option 1: li.appendTo("ul")
   option 2: $("ul").append(li)
@@ -104,4 +108,6 @@ $("form").on("submit",function (e) {
 
 *******************************
 http://jquery.com/download/
-google cdn: <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+google cdn:
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+cdn: content delivery network
