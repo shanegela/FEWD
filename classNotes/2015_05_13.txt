@@ -111,3 +111,8 @@ http://jquery.com/download/
 google cdn:
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 cdn: content delivery network
+
+
+***************************************
+1. do you have access to the API - keys
+2. read api documentation
