@@ -111,56 +111,42 @@
       var newComment = commentForm.querySelector("#new-comment-body");
       var comments = document.querySelector("#comments");
 
-      function authenticate (user) {
-        var status = 0;
+      function authenticate (success) {
+        var user =  prompt("Authenticate with your name:");
         if (user !== null && user !== undefined && user != "" ) {
-          status = 1;
+          success(user);
         }
-        return status;
+      }
+
+      function userLiked(user) {
+        var counter = parseInt(likeCount.textContent);
+        counter = counter + 1;
+        likeCount.textContent = counter;
+      }
+
+      function addComment(user) {
+        var addNewComment = document.createElement("div");
+        addNewComment.setAttribute("class","comment");
+        addNewComment.textContent = newComment.value + " - "  + user;
+        comments.appendChild(addNewComment);
       }
 
       function likeClicked(e) {
-        var user =  prompt("Authenticate with your name:");
-        var status = authenticate(user);
-        if (status == 1) {
-          var counter = parseInt(likeCount.textContent);
-          counter = counter + 1;
-          likeCount.textContent = counter;
-        }
-      }
-
-      function addComment(comment, user) {
-        var addNewComment = document.createElement("div");
-        addNewComment.setAttribute("class","comment");
-        addNewComment.textContent = comment + " - "  + user;
-        comments.appendChild(addNewComment);
+        e.preventDefault();
+        authenticate(userLiked);
       }
 
       function formSubmitted(e) {
         e.preventDefault();
         if (newComment.value !== null && newComment.value !== undefined && newComment.value != "") {
-          var user =  prompt("Authenticate with your name:");
-          var status = authenticate(user);
-          if (status == 1) {
-            addComment(newComment.value, user);
-            commentForm.reset();
-            newComment.focus();
-          }
+          authenticate(addComment);
+          commentForm.reset();
+          newComment.focus();
         }
       }
 
       likeLink.addEventListener("click",likeClicked);
       commentForm.addEventListener("submit",formSubmitted);
-
-//  Alternative is to create an Authentication function that takes a function
-//  If the authentication succeeds then call the funciton
-
-//  function Authenticate(succeed) {
-//    var username = prompt for user name
-//    if (un != null && un != "") {
-//      call succeed(username);
-//    }
-// }
 
     </script>
   </body>

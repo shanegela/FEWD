@@ -1,0 +1,107 @@
+Week 8 - Day 2
+* Present Homework Solution
+* Review schedule
+  - May 25: Holiday
+  - Only 4 more classes left until project demo
+    - Today: JQuery & Project planning
+    - mobile - responsive
+    - updating git hub page
+    - bootstrap (twitter)
+    - web-safe fonts (typekit)
+    - hosting: dropbox, github, bitballoon, heroku
+    - local storage
+    - maps
+
+* JQuery
+* Discuss Projects
+
+
+Vanilla JS **************************************************
+
+var a = {
+  get: function(),
+  addEl: function(),...
+}
+
+a.get();
+a.addEl();
+
+jquery.com - JQuery is a JavaScript library
+  jquery:  uses $ to define variables
+there is a different library that uses _
+
+* append child
+  option 1: li.appendTo("ul")
+  option 2: $("ul").append(li)
+
+* text content
+  set: $("li").text("set the li text content") -returns the collection
+  get: $("li").text() -> returns a string
+
+* set attributes:
+    $("a") -> returns all the anchors on the page
+    $("a").attr("href","http://wikipedia.org") -> sets the attribute for all anchors
+    -> if you want to only set one element anchor, then change the selector
+    $("a").first().attr("href","...")
+    -> returns the collection
+    $("li").text("my text").attr("font","arial");
+
+* get attribute
+    $("a").attr("href") -> gets the attribute for the first element
+    -> returns a string
+
+* add eventListener
+  $("form").On("submit",myFunction)
+  -> sets the event listener to the element
+  -> returns the collection
+
+* create Element
+  $("<p>") -> returns a collection of one element p
+  $("<p>").text("more like this")
+
+* query Selector:
+    $("#list") = document.querySelector("#list")
+* query Selector All
+
+* ajax: get(url,success) - get a URL and call a function when you're done
+
+* add class
+  $("li").addClass("import");
+  -> appends class to existing classes
+
+* remove class
+  $("li").removeClass("import");
+  -> removes class from existing classes
+
+* hide() - sets display: none
+* show()
+
+
+TODO List ***********************************
+
+<form>
+  <input>
+  <button>
+</form>
+
+<ul>
+</ul>
+
+when form submit
+  1. create a li
+  2. set the text content and attributes
+  3. append li to ul
+  4. reset form
+
+//anonymous function
+$("form").on("submit",function (e) {
+    e.preventDefault();
+    var text = $("input").text();
+    $("<li>").text(text).appendTo("ul");
+})
+
+// best practice: 2-3 chains
+
+*******************************
+http://jquery.com/download/
+google cdn: <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
