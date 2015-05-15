@@ -1,0 +1,54 @@
+
+<!-- saved from url=(0038)http://avandamiri.com/fewd-30/xhr.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></head><body><form>
+  <input type="text" placeholder="Search">
+  <button>Search</button>
+</form>
+
+<ul>
+
+</ul>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script>
+var list = $("ul");//document.querySelector("ul");
+var form = $("form");//document.querySelector("form");
+var input = $("input");//form.querySelector("input");
+
+function get(url, success) {
+  var xhr = new XMLHttpRequest();
+
+  xhr.addEventListener("readystatechange", function() {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      success(JSON.parse(xhr.response));
+    }
+  });
+
+  xhr.open("GET", url);
+  xhr.send();
+}
+
+function listMovies(results) {
+  var movies = results["metadata"];
+
+  list.html("");//list.innerHTML = ""; // Clears the list
+
+  var li = $("<li>");
+  li.text(movies);
+  list.append(li);//list.appendChild(li);
+
+}
+
+function formSubmitted(event) {
+  event.preventDefault();
+  //$.get("http://calservice.calottery.com/api/drawgames/15",listMovies);
+  get("http://calservice.calottery.com/api/drawgames/15",listMovies);
+//get("http://omdbapi.com/?s=" + input.val(), listMovies);
+//$.get("http://omdbapi.com/?s=" + input.val(), listMovies);
+//remove get function
+}
+
+form.on("submit", formSubmitted);
+
+</script>
+</body></html>
