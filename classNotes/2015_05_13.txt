@@ -114,5 +114,7 @@ cdn: content delivery network
 
 
 ***************************************
+Homework - API project research
 1. do you have access to the API - keys
 2. read api documentation
+3. list input & outputs - is it possible
