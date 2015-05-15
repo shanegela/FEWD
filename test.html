@@ -24,8 +24,8 @@ function get(url, success) {
   });
 
   xhr.open("GET", url,true);
-  xhr.setRequestHeader('Access-Control-Allow-Headers', '*');
-  xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
+  xhr.setRequestHeader('Access-Control-Allow-Headers', 'http://shanegela.github.io');
+  xhr.setRequestHeader('Access-Control-Allow-Origin', 'http://shanegela.github.io');
 
   xhr.send();
 }
