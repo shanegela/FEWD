@@ -17,14 +17,16 @@ var input = $("input");//form.querySelector("input");
 
 function get(url, success) {
   var xhr = new XMLHttpRequest();
-
   xhr.addEventListener("readystatechange", function() {
     if (xhr.readyState == 4 && xhr.status == 200) {
       success(JSON.parse(xhr.response));
     }
   });
 
-  xhr.open("GET", url);
+  xhr.open("GET", url,true);
+  xhr.setRequestHeader('Access-Control-Allow-Headers', '*');
+  xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
+
   xhr.send();
 }
 
@@ -41,8 +43,7 @@ function listMovies(results) {
 
 function formSubmitted(event) {
   event.preventDefault();
-  //$.get("http://calservice.calottery.com/api/drawgames/15",listMovies);
-  get("http://calservice.calottery.com/api/drawgames/15",listMovies);
+  $.get("http://calservice.calottery.com/api/drawgames/15",listMovies);
 //get("http://omdbapi.com/?s=" + input.val(), listMovies);
 //$.get("http://omdbapi.com/?s=" + input.val(), listMovies);
 //remove get function
