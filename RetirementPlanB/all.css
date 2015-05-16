@@ -93,8 +93,11 @@ section {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
 }
-.circle:hover, .circle:ontouch {
-  background: #F6A14B;
+.circle:hover {
+  background: #F59634;
+  box-shadow: inset -25px -25px 30px rgba(206, 98, 38, .7);
+  webkit-box-shadow: inset -25px -25px 30px rgba(206, 98, 38, .7);
+  moz-box-shadow: inset -25px -25px 30px rgba(206, 98, 38, .7);
 }
 .circle img {
   width: 80%;
