@@ -26,6 +26,7 @@ function get(url, success) {
   xhr.open("GET", url,true);
   xhr.setRequestHeader("Accept", "application/json");
   xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
+  console.log(xhr);
 
   xhr.send();
 }
