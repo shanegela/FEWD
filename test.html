@@ -26,7 +26,7 @@ function get(url, success) {
   xhr.open("GET", url,true);
   xhr.setRequestHeader("Accept", "application/json");
   xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
-  xhr.setResponseHeader("Access-Control-Allow-Origin", "*");
+  xhr.setResponseHeader("Access-Control-Allow-Origin", "http://calservice.calottery.com");
   console.log(xhr);
 
   xhr.send();
