@@ -59,12 +59,19 @@ function get(url, success) {
 function updateLotto(results) {
   var winningNumbers = results.games[0].draws[0].winningNumbers;
   var gamePotAmount = results.games[0].nextJackpot.jackpotAmount;
-  winningNumbers.sort();
-  ball1Num.text(winningNumbers[0]);
-  ball2Num.text(winningNumbers[1]);
-  ball3Num.text(winningNumbers[2]);
-  ball4Num.text(winningNumbers[3]);
-  ball5Num.text(winningNumbers[4]);
+  var winningBalls = [];
+  winningBalls.push(parseInt(winningNumbers[0]));
+  winningBalls.push(parseInt(winningNumbers[1]));
+  winningBalls.push(parseInt(winningNumbers[2]));
+  winningBalls.push(parseInt(winningNumbers[3]));
+  winningBalls.push(parseInt(winningNumbers[4]));
+  winningBalls.sort(function(a, b){return a-b});
+
+  ball1Num.text(winningBalls[0]);
+  ball2Num.text(winningBalls[1]);
+  ball3Num.text(winningBalls[2]);
+  ball4Num.text(winningBalls[3]);
+  ball5Num.text(winningBalls[4]);
   megaNum.textContent=winningNumbers[5];
   jackpotAmount.text(formatNumber(gamePotAmount));
 }
