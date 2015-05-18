@@ -59,6 +59,7 @@ function get(url, success) {
 function updateLotto(results) {
   var winningNumbers = results.games[0].draws[0].winningNumbers;
   var gamePotAmount = results.games[0].nextJackpot.jackpotAmount;
+  winningNumbers.sort();
   ball1Num.text(winningNumbers[0]);
   ball2Num.text(winningNumbers[1]);
   ball3Num.text(winningNumbers[2]);
