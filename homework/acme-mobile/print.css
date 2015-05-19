@@ -1,0 +1,14 @@
+header{
+  display:none;
+}
+
+main {
+  border:none;
+  box-shadow: none;
+  padding:0;
+}
+
+/* alternatively you could define a class */
+.dont-print {
+  display:none;
+}

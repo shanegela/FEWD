@@ -1,0 +1,59 @@
+<html>
+  <head>
+    <title>Acme Corporation</title>
+    <link rel="stylesheet" href="all.css" media="screen">
+  </head>
+  <body>
+    <header>
+      <img src="images/acme-corp.jpg"
+        alt="Acme Corporation Logo"
+        width="200px"
+        height="55px">
+      <nav>
+        <ul class="navList">
+          <li>
+            <a href="index.html">About ACME Corp</a>
+          </li>
+
+          <li>
+            <a href="products.html">Products</a>
+          </li>
+          <li>
+            <a class="SignUp" href="signup.html">Sign Up</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <h1>Sign Up</h1>
+      <form class="formSignUp" action="index.html" method="post">
+          <div class="formTwoColumns">
+            <label for="fFirstName">First Name</label>
+            <input id="fFirstName" type="text" name="fFirstName" value="" placeholder="Jane" required>
+          </div>
+          <div class="formTwoColumns">
+            <label for="fLastName">Last Name</label>
+            <input id = "fLastName" type="text" name="fLastName" value="" placeholder="Doe">
+            </div>
+          <div class="formTwoColumns">
+            <label for="fEmail">Email</label>
+            <input id="fEmail" type="email" name="fEmail" value="" placeholder="JaneDoe@gmail.com" required>
+            </div>
+          <div class="formTwoColumns">
+            <label for="fPassword">Password</label>
+            <input id="fPassword" type="password" name="fPassword" value="">
+            </div>
+          <div class="formOneColumn">
+            <input id="fAgreement" type="checkbox" name="fAgreement" value="">
+            <label for="fAgreement">Agree to our terms of service</label>
+          </div>
+          <div class="formOneColumn">
+          <input type="submit" name="fSubmit" value="Sign Up">
+          </div>
+      </form>
+    </main>
+    <footer>
+      <p>Copyright, 2015</p>
+    </footer>
+  </body>
+</html>

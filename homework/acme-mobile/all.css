@@ -1,0 +1,128 @@
+html {
+  background-color: #EEEDEC;
+  background-image: url(../images/background.png);
+  font-family: Trebuchet MS;
+  font-size:12pt;
+  overflow-y:scroll;
+}
+header {
+  background-color:#C4C4C4;
+  padding:10px 30px;
+  margin: 0px;
+  overflow:auto;
+  position:fixed;
+    top:0;
+    left:0;
+  width: 100%;
+}
+header img {
+  float:left;
+}
+header a {
+  color: white;
+  text-shadow: gray 0 1px;
+  text-decoration: none;
+}
+.SignUp {
+  background-color:#294CB2;
+  padding: 10px 20px;
+  border-radius: 5px;
+  color:white;
+  border:none;
+  font-family: Trebuchet MS;
+  font-size:12pt;
+  margin: 0px;
+}
+body {
+  margin:0;
+}
+main, footer {
+  margin:0 auto;
+  max-width:660px;
+  padding:20px 30px;
+  }
+main {
+  border: 1px solid lightgrey;
+  box-shadow: 0px 0px 20px slategray;
+  background-color:white;
+  border-radius: 10px;
+  margin-top:150px;
+}
+footer {
+  border-top: 4px groove white;
+  text-align: center;
+  text-shadow: gray 0 1px;
+  color: lightgrey;
+  margin-top: 50px;
+}
+nav {
+  float:right;
+  padding: 20px 50px 0 0;
+}
+.navList {
+  display: -webkit-flex;
+  display:flex;
+  align-items:center;
+  list-style:none;
+  padding-top: 0;
+  margin: 0;
+  }
+.navList li {
+  margin: 0 0 0 30px;
+  vertical-align:middle;
+}
+.product {
+  display: -webkit-flex;
+  display:flex;
+  border-bottom:1px solid lightgrey;
+  padding:20px 0;
+}
+.productImageColumn {
+  flex:2;
+  -webkit-flex: 2;
+}
+.productDescColumn {
+  flex:5;
+  -webkit-flex: 5;
+  padding: 0 0 0 20px;
+}
+.productImage {
+  border: 5px ridge lightgrey;
+}
+.productDescColumn p {
+  margin-top:0;
+}
+.productDescColumn p span {
+  font-weight:bold;
+}
+.buttonAddToCart {
+  background-color:firebrick;
+  border:none;
+  border-radius:5px;
+  color:white;
+  padding:10px;
+}
+.formSignUp {
+  max-width:400px;
+  margin:0;
+}
+.formTwoColumns, .formOneColumn {
+  margin:10px;
+  overflow:auto;
+}
+.formTwoColumns input  {
+  -moz-border-radius:5px; /* Firefox */
+  -webkit-border-radius: 5px; /* Safari, Chrome */
+  border-radius:5px;
+  height:25px;
+  width:240px;
+  float:right;
+}
+.formTwoColumns label  {
+    float:left;
+}
+.formOneColumn input {
+  border-style:1px solid grey;
+  border-radius:2px;
+  padding:5px 10px;
+}

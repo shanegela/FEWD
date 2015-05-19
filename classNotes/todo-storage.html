@@ -1,0 +1,77 @@
+<head>
+  <title>To Do List</title>
+</head>
+<body>
+  <header>
+    <form id="new-todo-item-form">
+        <input type="text" id="new-todo-item-input" placeholder="What do you need to do?">
+        <button type="submit">Create todo</button>
+    </form>
+
+  </header>
+  <main>
+    <hr>
+    <ul id="todo-list">
+      <!--
+        <li class="todo-item">Homework</li>
+      -->
+    </ul>
+  </main>
+<script>
+//  When the form is submitted:
+// Grab the input from text input
+// Add a list item to the list
+//   - create the li
+//   - set the content
+//   - add it to the list
+// Add an event listener to the form submit
+// stop default form submission (default form behavior: reload page)
+// reset text box
+
+var todoForm = document.querySelector("#new-todo-item-form");
+var todoList = document.querySelector("#todo-list");
+var newToDo = todoForm.querySelector("#new-todo-item-input");
+
+function createToDoItem(value) {
+  var newItem = createListItem(value);
+  saveToDo(value);
+  return newItem;
+}
+
+function formSubmitted(e) {
+  var newItem = createToDoItem(newToDo.value);
+  todoList.appendChild(newItem);
+  todoForm.reset();
+  e.preventDefault();
+  newToDo.focus();
+}
+
+function saveToDo (text) {
+  var currentTodos = JSON.parse(localStorage.getItem("todos"));
+  if (currentTodos == null) {
+    currentTodos = [];
+  }
+  currentTodos.push(text);
+  localStorage.setItem("todos",JSON.stringify(currentTodos));
+}
+
+
+function createListItem(text) {
+  var newItem = document.createElement("li");
+  newItem.setAttribute("class","todo-item");
+  newItem.textContent = text;
+  todoList.appendChild(newItem);
+  return newItem;
+}
+// When the page loads:
+//  Add an event listener to the form submit
+todoForm.addEventListener("submit",formSubmitted);
+
+var existingTodos = JSON.parse(localStorage.getItem("todos"));
+for (var i=0; i < existingTodos.length; i++) {
+  createListItem(existingTodos[i]);
+}
+
+
+</script>
+</body>

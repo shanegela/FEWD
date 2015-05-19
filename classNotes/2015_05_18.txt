@@ -1,0 +1,64 @@
+Mobile ************************************************************
+1. ACME (homework/acme-mobile)
+  - new menu control
+  - images get smaller
+  - reduce margin
+
+Resolution drops as screen gets smaller
+  Desktop: > 800 pixels
+  Tablet: 760 pixels
+  Mobile: iphone: 375 wide pixels
+1 pixel in css maybe more than 1 pixel on an iphone
+You must build a design for each screen size
+
+Min: 400 px wide (min width for desktop, max width for mobile)
+
+"Mobile First Development": because mobile growth is good, most startups start with mobile design and then make changes for desktop later on.
+
+At 400 px (breakpoint) there will be a whole set of different behavior at this juncture.
+Target for Media queries
+
+Media-Query
+- screen (desktop)
+- print (printer)
+- max-width (starting with desktop, then next targetting mobile)
+- min-width: (starting with mobile, then next targetting desktop)
+- all
+
+<link rel="stylesheet" href="all.css" media="screen">
+<link rel="stylesheet" href="print.css" media="print">
+
+Typically you have
+1. base starting point, most common rules
+2. then you have separate styles for print/mobile/screen
+
+For us, we start with screen as our base and later we'll customize for print & mobile
+
+Print (how to make it look like it is not a website)
+- extract text, border, box shadow
+- kill the menu
+CSS: display: none
+Option 1: call out elements in css
+Option 2: create a "dont-print" class
+
+
+
+Local Storage *****************************************************
+TODO List (todo-storage)
+- local storage: still in browser but not in server
+  - 5MB of storage, not good for images but good for text
+  - string value that goes in and out of local storage.  you can't put in an array or an object. only a string.
+  - an array has to be converted to a string: json.stringify()
+  - string must be converted back to array: json.parse
+  - local storage is a key value store: key is a string, value is a string
+- cookies: but limited storage space, too small
+
+localStorage Methods
+- property: length (number) - how many items
+- method: removeItem(key)
+- method: setItem(key, value)
+- method: getItem(key)
+
+
+
+Work on Projects ***************************************************
