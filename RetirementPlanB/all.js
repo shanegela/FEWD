@@ -10,6 +10,15 @@ var ball2Num = $("#ball2 p");
 var ball3Num = $("#ball3 p");
 var ball4Num = $("#ball4 p");
 var ball5Num = $("#ball5 p");
+var qpBall1Num = $("#qpBall1 p");
+var qpBall2Num = $("#qpBall2 p");
+var qpBall3Num = $("#qpBall3 p");
+var qpBall4Num = $("#qpBall4 p");
+var qpBall5Num = $("#qpBall5 p");
+var qpMegaNum = $("#qpMegaBall p");
+var qpMegaBall = document.querySelector("#qpMegaBall");
+
+
 var pmaxBall = 59;
 var pmaxMega = 35;
 var mmaxBall = 75;
@@ -43,6 +52,10 @@ function powerClicked (e) {
   megaBall.style.setProperty("box-shadow","inset -25px -25px 30px rgba(101, 17, 19,.7)");
   megaBall.style.setProperty("-webkit-box-shadow","inset -25px -25px 30px rgba(101, 17, 19,.7)");
   megaBall.style.setProperty("-moz-box-shadow","inset -25px -25px 30px rgba(101, 17, 19,.7)");
+  qpMegaBall.style.setProperty("background","#CA1F26");
+  qpMegaBall.style.setProperty("box-shadow","inset -25px -25px 30px rgba(101, 17, 19,.7)");
+  qpMegaBall.style.setProperty("-webkit-box-shadow","inset -25px -25px 30px rgba(101, 17, 19,.7)");
+  qpMegaBall.style.setProperty("-moz-box-shadow","inset -25px -25px 30px rgba(101, 17, 19,.7)");
   $.get("http://calservice.calottery.com/api/drawgames/12",updateLotto);
   Game = 1;
   setMinMax(Game);
@@ -53,6 +66,10 @@ function megaClicked (e) {
   megaBall.style.setProperty("box-shadow","inset -25px -25px 30px rgba(11, 33, 82,.7)");
   megaBall.style.setProperty("-webkit-box-shadow","inset -25px -25px 30px rgba(11, 33, 82,.7)");
   megaBall.style.setProperty("-moz-box-shadow","inset -25px -25px 30px rgba(11, 33, 82,.7)");
+  qpMegaBall.style.setProperty("background","#1A4199");
+  qpMegaBall.style.setProperty("box-shadow","inset -25px -25px 30px rgba(11, 33, 82,.7)");
+  qpMegaBall.style.setProperty("-webkit-box-shadow","inset -25px -25px 30px rgba(11, 33, 82,.7)");
+  qpMegaBall.style.setProperty("-moz-box-shadow","inset -25px -25px 30px rgba(11, 33, 82,.7)");
   $.get("http://calservice.calottery.com/api/drawgames/15",updateLotto);
   Game = 2;
   setMinMax(Game);
@@ -63,6 +80,10 @@ function superClicked (e) {
   megaBall.style.setProperty("box-shadow","inset -25px -25px 30px rgba(201, 80, 14,.7)");
   megaBall.style.setProperty("-webkit-box-shadow","inset -25px -25px 30px rgba(201, 80, 14,.7)");
   megaBall.style.setProperty("-moz-box-shadow","inset -25px -25px 30px rgba(201, 80, 14,.7)");
+  qpMegaBall.style.setProperty("background","#F48A1E");
+  qpMegaBall.style.setProperty("box-shadow","inset -25px -25px 30px rgba(201, 80, 14,.7)");
+  qpMegaBall.style.setProperty("-webkit-box-shadow","inset -25px -25px 30px rgba(201, 80, 14,.7)");
+  qpMegaBall.style.setProperty("-moz-box-shadow","inset -25px -25px 30px rgba(201, 80, 14,.7)");
   $.get("http://calservice.calottery.com/api/drawgames/8",updateLotto);
   Game = 3;
   setMinMax(Game);
@@ -200,7 +221,7 @@ function getRandomInt(min, max) {
 }
 
 function generateQPNumbers(qpNumbers) {
-  for (var i=0; i<qpNumbers.length; i++) {
+  for (var i=0; i < qpNumbers.length; i++) {
     if (qpNumbers[i].requestQP == 1) {
       var num = 1;
       if (qpNumbers[i].isMega == 1) {
@@ -213,18 +234,26 @@ function generateQPNumbers(qpNumbers) {
       qpNumbers[i].qpNumber = parseInt(qpNumbers[i].qpValue);
     }
   }
+
+  // sort QP generated numbers
+  var sortNumbers= [];
+  for (var i=0; i < qpNumbers.length -1; i++) {
+    sortNumbers.push(qpNumbers[i].qpNumber);
+  }
+  sortNumbers.sort(function(a, b){return a-b});
+  for (var i=0; i < sortNumbers.length; i++) {
+    qpNumbers[i].qpNumber = sortNumbers[i];
+  }
+  sortNumbers = [];
 }
 
 function showQPNumbers(qpNumbers) {
-  var numbers = '';
-  for (var i = 0; i < qpNumbers.length; i++) {
-    if (numbers == '') {
-      numbers = qpNumbers[i].qpNumber;
-    } else {
-      numbers = numbers + ", " + qpNumbers[i].qpNumber;
-    }
-  }
-  $(".quickpick p").text(numbers);
+  qpBall1Num.text(qpNumbers[0].qpNumber);
+  qpBall2Num.text(qpNumbers[1].qpNumber);
+  qpBall3Num.text(qpNumbers[2].qpNumber);
+  qpBall4Num.text(qpNumbers[3].qpNumber);
+  qpBall5Num.text(qpNumbers[4].qpNumber);
+  qpMegaNum.text(qpNumbers[5].qpNumber);
 }
 
 function QPFormSubmitted (e) {

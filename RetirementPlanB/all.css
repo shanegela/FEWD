@@ -60,11 +60,32 @@ section {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
 }
-.gamediv, .qpdiv {
+
+.gameQPdiv {
+  width:100%;
+  padding:30px 0px;
+  margin:0;
+  box-sizing: border-box;
+/*background: linear-gradient(#36C5F4,#ffffff);
+  background: -moz-linear-gradient(#36C5F4,#ffffff);
+  background: -webkit-linear-gradient(#36C5F4,#ffffff);
+  border-radius:20px;
+*/
+  overflow:auto;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+.gamediv, .qpdiv, .gameQPdiv {
   display: -webkit-box;
   display: -moz-box;
   display:flex;
 }
+
+.hideQP {
+/*  display:none; */
+}
+
 .empty {
   flex:1;
   -webkit-box-flex:1;
@@ -180,7 +201,7 @@ section {
 }
 #buttonQP {
   text-align:center;
-  margin: 20px auto;
+  margin: 30px auto;
   border-radius: 10px;
   text-align: center;
   padding: 10px;
