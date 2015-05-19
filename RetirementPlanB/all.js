@@ -75,3 +75,15 @@ function updateLotto(results) {
   megaNum.textContent=winningNumbers[5];
   jackpotAmount.text(formatNumber(gamePotAmount));
 }
+
+function isInteger(x) {
+  return (typeof x === 'number') && (x % 1 === 0);
+}
+
+
+function validateQPNumbers(QPNumbers) {
+  var status = 0;
+  for (var i = 0; i < QPNumbers.Length; i++) {
+    
+  }
+}
