@@ -10,15 +10,33 @@ var ball2Num = $("#ball2 p");
 var ball3Num = $("#ball3 p");
 var ball4Num = $("#ball4 p");
 var ball5Num = $("#ball5 p");
-var pBallMax = 59;
-var pMegaMax = 35;
-var mBallMax = 75;
-var mMegaMax = 15;
-var sBallMax = 47;
-var sMegaMax = 27;
+var pmaxBall = 59;
+var pmaxMega = 35;
+var mmaxBall = 75;
+var mmaxMega = 15;
+var smaxBall = 47;
+var smaxMega = 27;
+
+var minBall = 1;
+var maxBall = 1;
+var minMega = 1;
+var maxMega = 1;
+
 var Game = 1; // 1: Powerball, 2: Mega, 3: Super
 var qpForm = $("#qpForm");
 
+function setMinMax (Game) {
+  if (Game == 1) {// Powerball
+    maxBall = pmaxBall;
+    maxMega = pmaxMega;
+  } else if (Game == 2) { //Mega
+    maxBall = mmaxBall;
+    maxMega = mmaxMega;
+  } else {
+    maxBall = smaxBall;
+    maxMega = smaxMega;
+  }
+}
 
 function powerClicked (e) {
   megaBall.style.setProperty("background","#CA1F26");
@@ -27,6 +45,7 @@ function powerClicked (e) {
   megaBall.style.setProperty("-moz-box-shadow","inset -25px -25px 30px rgba(101, 17, 19,.7)");
   $.get("http://calservice.calottery.com/api/drawgames/12",updateLotto);
   Game = 1;
+  setMinMax(Game);
 }
 
 function megaClicked (e) {
@@ -36,6 +55,7 @@ function megaClicked (e) {
   megaBall.style.setProperty("-moz-box-shadow","inset -25px -25px 30px rgba(11, 33, 82,.7)");
   $.get("http://calservice.calottery.com/api/drawgames/15",updateLotto);
   Game = 2;
+  setMinMax(Game);
 }
 
 function superClicked (e) {
@@ -45,6 +65,7 @@ function superClicked (e) {
   megaBall.style.setProperty("-moz-box-shadow","inset -25px -25px 30px rgba(201, 80, 14,.7)");
   $.get("http://calservice.calottery.com/api/drawgames/8",updateLotto);
   Game = 3;
+  setMinMax(Game);
 }
 
 function formatNumber (num) {
@@ -118,29 +139,15 @@ function validateQPNumbersAreInRange(QPNumbers) {
   var ballNumber = 0;
   var notInBallRange = ''
   var notInMegaRange = ''
-  var minBall = 1;
-  var ballMax = 1;
-  var megaMax = 1;
-
-  if (Game == 1) {// Powerball
-    ballMax = pBallMax;
-    megaMax = pMegaMax;
-  } else if (Game == 2) { //Mega
-  ballMax = mBallMax;
-    megaMax = mMegaMax;
-  } else {
-    ballMax = sBallMax;
-    megaMax = sMegaMax;
-  }
 
   for (var i = 0; i < QPNumbers.length; i++) {
     ballNumber = parseInt(QPNumbers[i].qpValue);
     if (QPNumbers[i].isMega == 1) {
-      if (ballNumber < minBall || ballNumber > megaMax) {
+      if (ballNumber < minMega || ballNumber > maxMega) {
         notInMegaRange = ballNumber;
       }
     } else {
-      if (ballNumber < minBall || ballNumber > ballMax) {
+      if (ballNumber < minBall || ballNumber > maxBall) {
         if (notInBallRange == '') {
           notInBallRange = ballNumber;
         } else {
@@ -153,13 +160,13 @@ function validateQPNumbersAreInRange(QPNumbers) {
   if ( (notInMegaRange !='') || (notInBallRange != '')) {
     var alertMessage = 'Stop messing around. This is your financial future.';
     if (notInBallRange != '') {
-      alertMessage = alertMessage + "The following quick pick ball(s) must be between 1 and " + ballMax + ": " + notInBallRange + "."
+      alertMessage = alertMessage + "The following quick pick ball(s) must be between 1 and " + maxBall + ": " + notInBallRange + "."
     }
     if (notInMegaRange != '') {
       if (notInBallRange != '') {
         alertMessage = alertMessage + "  ";
       }
-      alertMessage = alertMessage + "The following MEGA ball must be between 1 and " + megaMax + ": " + notInMegaRange;
+      alertMessage = alertMessage + "The following MEGA ball must be between 1 and " + maxMega + ": " + notInMegaRange;
     }
     alert(alertMessage);
     status = 1;
@@ -185,6 +192,41 @@ function createQPNumbers(userInput,isMega,userEnteredQPNumbers) {
   return qpBall;
 }
 
+
+function getRandomInt(min, max) {
+  // Returns a random integer between min (included) and max (excluded)
+  // Using Math.round() will give you a non-uniform distribution!
+  return Math.floor(Math.random() * (max - min)) + min;
+}
+
+function generateQPNumbers(qpNumbers) {
+  for (var i=0; i<qpNumbers.length; i++) {
+    if (qpNumbers[i].requestQP == 1) {
+      var num = 1;
+      if (qpNumbers[i].isMega == 1) {
+        num = getRandomInt(minMega,maxMega);
+      } else {
+        num = getRandomInt(minBall,maxBall);
+      }
+      qpNumbers[i].qpNumber = num;
+    } else {
+      qpNumbers[i].qpNumber = parseInt(qpNumbers[i].qpValue);
+    }
+  }
+}
+
+function showQPNumbers(qpNumbers) {
+  var numbers = '';
+  for (var i = 0; i < qpNumbers.length; i++) {
+    if (numbers == '') {
+      numbers = qpNumbers[i].qpNumber;
+    } else {
+      numbers = numbers + ", " + qpNumbers[i].qpNumber;
+    }
+  }
+  $(".quickpick p").text(numbers);
+}
+
 function QPFormSubmitted (e) {
   e.preventDefault();
   var qpNumbers = [];
@@ -201,7 +243,8 @@ function QPFormSubmitted (e) {
     status = validateQPNumbersAreInRange(userEnteredQPNumbers);
     if (status == 0) {
       //jQuery has no .reset() method. Use javascript to get the first HTML element
-      alert('generate QP');
+      generateQPNumbers(qpNumbers);
+      showQPNumbers(qpNumbers);
       qpForm[0].reset();
     }
   }
