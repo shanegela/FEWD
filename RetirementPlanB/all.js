@@ -112,10 +112,6 @@ function formatNumber (num) {
     return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")
 }
 
-gameMega.addEventListener("click",megaClicked);
-gameSuper.addEventListener("click",superClicked);
-gamePower.addEventListener("click",powerClicked);
-
 function get(url, success) {
   var xhr = new XMLHttpRequest();
   xhr.addEventListener("readystatechange", function() {
@@ -335,5 +331,12 @@ function QPFormSubmitted (e) {
   }
 }
 
+gameMega.addEventListener("click",megaClicked);
+gameSuper.addEventListener("click",superClicked);
+gamePower.addEventListener("click",powerClicked);
 //qpForm.addEventListener("submit",QPFormSubmitted);
 qpForm.on("submit",QPFormSubmitted);
+
+$( document ).ready(function() {
+    powerClicked();
+});
