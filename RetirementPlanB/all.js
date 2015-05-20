@@ -31,20 +31,41 @@ var maxBall = 1;
 var minMega = 1;
 var maxMega = 1;
 
-var Game = 1; // 1: Powerball, 2: Mega, 3: Super
+var powerGameId = 1;
+var megaGameId = 2;
+var superGameId = 3;
+
+var GameId = powerGameId;
 var qpForm = $("#qpForm");
 
-function setMinMax (Game) {
-  if (Game == 1) {// Powerball
+function setMinMax (newGameId) {
+  if (newGameId == 1) {
     maxBall = pmaxBall;
     maxMega = pmaxMega;
-  } else if (Game == 2) { //Mega
+  } else if (newGameId == 2) {
     maxBall = mmaxBall;
     maxMega = mmaxMega;
   } else {
     maxBall = smaxBall;
     maxMega = smaxMega;
   }
+}
+
+function resetQuickPick (newGameId) {
+  if (GameId != newGameId) {
+    qpBall1Num.text("$");
+    qpBall2Num.text("$");
+    qpBall3Num.text("$");
+    qpBall4Num.text("$");
+    qpBall5Num.text("$");
+    qpMegaNum.text("$");
+  }
+}
+
+function setGame (newGameId) {
+  setMinMax(newGameId);
+  resetQuickPick(newGameId);
+  GameId = newGameId;
 }
 
 function powerClicked (e) {
@@ -57,8 +78,7 @@ function powerClicked (e) {
   qpMegaBall.style.setProperty("-webkit-box-shadow","inset -25px -25px 30px rgba(101, 17, 19,.7)");
   qpMegaBall.style.setProperty("-moz-box-shadow","inset -25px -25px 30px rgba(101, 17, 19,.7)");
   $.get("http://calservice.calottery.com/api/drawgames/12",updateLotto);
-  Game = 1;
-  setMinMax(Game);
+  setGame(powerGameId);
 }
 
 function megaClicked (e) {
@@ -71,8 +91,7 @@ function megaClicked (e) {
   qpMegaBall.style.setProperty("-webkit-box-shadow","inset -25px -25px 30px rgba(11, 33, 82,.7)");
   qpMegaBall.style.setProperty("-moz-box-shadow","inset -25px -25px 30px rgba(11, 33, 82,.7)");
   $.get("http://calservice.calottery.com/api/drawgames/15",updateLotto);
-  Game = 2;
-  setMinMax(Game);
+  setGame(megaGameId);
 }
 
 function superClicked (e) {
@@ -85,8 +104,7 @@ function superClicked (e) {
   qpMegaBall.style.setProperty("-webkit-box-shadow","inset -25px -25px 30px rgba(201, 80, 14,.7)");
   qpMegaBall.style.setProperty("-moz-box-shadow","inset -25px -25px 30px rgba(201, 80, 14,.7)");
   $.get("http://calservice.calottery.com/api/drawgames/8",updateLotto);
-  Game = 3;
-  setMinMax(Game);
+  setGame(superGameId);
 }
 
 function formatNumber (num) {
