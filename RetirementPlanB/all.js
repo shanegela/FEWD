@@ -218,7 +218,7 @@ function createQPNumbers(userInput,isMega,userEnteredQPNumbers) {
     qpValue:0,    //user input
     isMega:0,     //boolean: 0-regular, 1-Mega
     requestQP:1,  //boolean: 0-use input, 1-generate QP
-    qpNumber:0   //number: final qp number
+    qpNumber:0    //number: final qp number
   }
   qpBall.qpValue = userInput;
   qpBall.isMega = isMega;
@@ -238,21 +238,7 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-function generateQPNumbers(qpNumbers) {
-  for (var i=0; i < qpNumbers.length; i++) {
-    if (qpNumbers[i].requestQP == 1) {
-      var num = 1;
-      if (qpNumbers[i].isMega == 1) {
-        num = getRandomInt(minMega,maxMega);
-      } else {
-        num = getRandomInt(minBall,maxBall);
-      }
-      qpNumbers[i].qpNumber = num;
-    } else {
-      qpNumbers[i].qpNumber = parseInt(qpNumbers[i].qpValue);
-    }
-  }
-
+function sortQPNumbers(qpNumbers) {
   // sort QP generated numbers
   var sortNumbers= [];
   for (var i=0; i < qpNumbers.length -1; i++) {
@@ -263,6 +249,35 @@ function generateQPNumbers(qpNumbers) {
     qpNumbers[i].qpNumber = sortNumbers[i];
   }
   sortNumbers = [];
+  return qpNumbers;
+}
+
+function generateQPNumbers(qpNumbers) {
+  var isDuplicate = 0;
+  for (var i=0; i < qpNumbers.length; i++) {
+    if (qpNumbers[i].requestQP == 1) {
+      var num = 1;
+      if (qpNumbers[i].isMega == 1) {
+        num = getRandomInt(minMega,maxMega);
+      } else {
+        isDuplicate = 1;
+        while (isDuplicate == 1) {
+          isDuplicate = 0;
+          num = getRandomInt(minBall,maxBall);
+          for (var j=0; j < qpNumbers.length; j++) {
+            if (num == qpNumbers[j].qpNumber && j != i) {
+              isDuplicate = 1;
+            }
+          }
+        }
+      }
+      qpNumbers[i].qpNumber = num;
+    } else {
+      qpNumbers[i].qpNumber = parseInt(qpNumbers[i].qpValue);
+    }
+  }
+  qpNumbers = sortQPNumbers(qpNumbers);
+  return qpNumbers;
 }
 
 function showQPNumbers(qpNumbers) {
@@ -290,7 +305,7 @@ function QPFormSubmitted (e) {
     status = validateQPNumbersAreInRange(userEnteredQPNumbers);
     if (status == 0) {
       //jQuery has no .reset() method. Use javascript to get the first HTML element
-      generateQPNumbers(qpNumbers);
+      qpNumbers = generateQPNumbers(qpNumbers);
       showQPNumbers(qpNumbers);
       qpForm[0].reset();
     }
