@@ -2,14 +2,16 @@
 var gameMega = document.querySelector("#gameMega");
 var gameSuper = document.querySelector("#gameSuper");
 var gamePower = document.querySelector("#gamePower");
-var megaBall = document.querySelector("#megaBall");
-var megaNum = document.querySelector("#megaBall p");
 var jackpotAmount = $(".nextJackpotAmount p");
+
 var ball1Num = $("#ball1 p");
 var ball2Num = $("#ball2 p");
 var ball3Num = $("#ball3 p");
 var ball4Num = $("#ball4 p");
 var ball5Num = $("#ball5 p");
+var megaNum = document.querySelector("#megaBall p");
+var megaBall = document.querySelector("#megaBall");
+
 var qpBall1Num = $("#qpBall1 p");
 var qpBall2Num = $("#qpBall2 p");
 var qpBall3Num = $("#qpBall3 p");
@@ -17,7 +19,6 @@ var qpBall4Num = $("#qpBall4 p");
 var qpBall5Num = $("#qpBall5 p");
 var qpMegaNum = $("#qpMegaBall p");
 var qpMegaBall = document.querySelector("#qpMegaBall");
-
 
 var pmaxBall = 59;
 var pmaxMega = 35;
@@ -36,7 +37,7 @@ var megaGameId = 2;
 var superGameId = 3;
 
 var GameId = powerGameId;
-var qpForm = $("#qpForm");
+var qpForm = $("#quickPickForm");
 
 function setMinMax (newGameId) {
   if (newGameId == 1) {
@@ -165,7 +166,7 @@ function validateQPNumbersAreIntegers(QPNumbers) {
   if  (notInt != '')  {
     var alertMessage = 'Stop messing around. This is your financial future.';
     if (notInt != '') {
-      alertMessage = alertMessage + "The following quick pick ball(s) are not integers: " + notInt;
+      alertMessage = alertMessage + "The following quick pickball(s) are not integers: " + notInt;
     }
     alert(alertMessage);
     status = 1;
@@ -199,7 +200,7 @@ function validateQPNumbersAreInRange(QPNumbers) {
   if ( (notInMegaRange !='') || (notInBallRange != '')) {
     var alertMessage = 'Stop messing around. This is your financial future.';
     if (notInBallRange != '') {
-      alertMessage = alertMessage + "The following quick pick ball(s) must be between 1 and " + maxBall + ": " + notInBallRange + "."
+      alertMessage = alertMessage + "The following quickpick ball(s) must be between 1 and " + maxBall + ": " + notInBallRange + "."
     }
     if (notInMegaRange != '') {
       if (notInBallRange != '') {
@@ -209,6 +210,25 @@ function validateQPNumbersAreInRange(QPNumbers) {
     }
     alert(alertMessage);
     status = 1;
+  }
+  return status;
+}
+
+function validateQPNumbersHasNoDuplicates(QPNumbers) {
+  var status = 0;
+  var dupMessage = '';
+
+  for (var i = 0; i < QPNumbers.length; i++) {
+    if (QPNumbers[i].isMega == 0) {
+      for (var j = 0; j < QPNumbers.length; j++) {
+        if (QPNumbers[i].qpValue == QPNumbers[j].qpValue && i != j && QPNumbers[i].isMega == 0 ) {
+          status = 1;
+        }
+      }
+    }
+  }
+  if (status == 1) {
+    alert("Stop messing around. This is your financial future. Remove duplicate quickpick values.");
   }
   return status;
 }
@@ -304,10 +324,13 @@ function QPFormSubmitted (e) {
   if (status == 0) {
     status = validateQPNumbersAreInRange(userEnteredQPNumbers);
     if (status == 0) {
-      //jQuery has no .reset() method. Use javascript to get the first HTML element
-      qpNumbers = generateQPNumbers(qpNumbers);
-      showQPNumbers(qpNumbers);
-      qpForm[0].reset();
+      status = validateQPNumbersHasNoDuplicates(userEnteredQPNumbers);
+      if (status == 0) {
+        //jQuery has no .reset() method. Use javascript to get the first HTML element
+        qpNumbers = generateQPNumbers(qpNumbers);
+        showQPNumbers(qpNumbers);
+        qpForm[0].reset();
+      }
     }
   }
 }

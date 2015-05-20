@@ -26,7 +26,7 @@ body {
 .drawGame,
 .winningNumbers,
 .quickpickOutput,
-.quickPickForm,
+.quickpickInput,
 .quickpickButton
 {
   display: -webkit-box;
@@ -148,7 +148,7 @@ body {
   color:white;
 }
 
-.quickpickInput {
+.quickpickInputField {
   width: 125px;
   margin: 0px 10px;
   border-radius: 10px;
