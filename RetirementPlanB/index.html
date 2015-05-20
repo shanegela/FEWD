@@ -1,28 +1,20 @@
+<!-- TO DO
+* regenerate QP for duplicates
+* generate error for user input duplicate
+* set default game on load
+* store last game to localcomputer
+-->
+
 <head>
   <title>Retirement Plan B</title>
   <link rel="stylesheet" href="all.css" media="screen">
 </head>
 <body>
-  <header>
-    <nav>
-      <ul class="navList">
-        <li>
-          <a href="#">When</a>
-        </li>
-        <li>
-          <a href="#">Where</a>
-        </li>
-        <li>
-          <a href="#">What</a>
-        </li>
-      </ul>
-    </nav>
-  </header>
-  <section>
-    <div class="gamediv">
+  <main>
+    <div class="section drawGame">
         <div class="empty"></div>
         <div class="gamebox">
-          <div id ="gamePower" class="circle" >
+          <div id ="gamePower" class="gameCircle" >
             <img
               src="images/powerball.png"
               alt="Powerball Lottery"
@@ -31,7 +23,7 @@
         </div>
         <div class="empty"></div>
         <div class="gamebox" >
-          <div id ="gameMega" class="circle">
+          <div id ="gameMega" class="gameCircle">
             <img
               src="images/mega.png"
               alt="Mega Millions Lottery"
@@ -40,7 +32,7 @@
         </div>
         <div class="empty"></div>
         <div class="gamebox">
-          <div id="gameSuper" class="circle">
+          <div id="gameSuper" class="gameCircle">
             <img
               src="images/super.png"
               alt="SuperLotto Plus Lottery"
@@ -49,110 +41,114 @@
         </div>
         <div class="empty"></div>
     </div>
-    <div class="maindiv">
-      <div class="jackpot">
-        <p>777,777,777</p>
+    <div class="section nextJackpot">
+      <div class="nextJackpotAmount">
+        <p>---,---,---</p>
       </div>
     </div>
-    <div class="gamediv">
+    <div class="section winningNumbers">
         <div class="empty"></div>
         <div class="ballbox">
-          <div class="ball" id="ball1">
-            <p>X</p>
+          <div class="ballCircle" id="ball1">
+            <p></p>
           </div>
         </div>
         <div class="empty"></div>
         <div class="ballbox">
-          <div class="ball" id="ball2">
-            <p>22</p>
+          <div class="ballCircle" id="ball2">
+            <p></p>
           </div>
         </div>
         <div class="empty"></div>
         <div class="ballbox">
-          <div class="ball" id="ball3">
-            <p>X</p>
+          <div class="ballCircle" id="ball3">
+            <p></p>
           </div>
         </div>
         <div class="empty"></div>
         <div class="ballbox">
-          <div class="ball" id="ball4">
-            <p>X</p>
+          <div class="ballCircle" id="ball4">
+            <p></p>
           </div>
         </div>
         <div class="empty"></div>
         <div class="ballbox">
-          <div class="ball" id="ball5">
-            <p>X</p>
+          <div class="ballCircle" id="ball5">
+            <p></p>
           </div>
         </div>
         <div class="empty"></div>
         <div class="ballbox">
-          <div class="megaball" id="megaBall">
-            <p>X</p>
+          <div class="ballMegaCircle" id="megaBall">
+            <p></p>
           </div>
         </div>
         <div class="empty"></div>
     </div>
-    <div class="quickpick">
+    <div class="section">
       <form id="qpForm" action="index.html" method="post">
-        <div class="qpdiv">
-        <div class="empty"></div>
-        <input type="text" class="QP" id="QP1" placeholder="QP1"></input>
-        <div class="empty"></div>
-        <input type="text" class="QP" id="QP2" placeholder="QP2"></input>
-        <div class="empty"></div>
-        <input type="text" class="QP" id="QP3" placeholder="QP3"></input>
-        <div class="empty"></div>
-        <input type="text" class="QP" id="QP4" placeholder="QP4"></input>
-        <div class="empty"></div>
-        <input type="text" class="QP" id="QP5" placeholder="QP5"></input>
-        <div class="empty"></div>
-        <input type="text" class="QP" id="QP6" placeholder="Mega"></input>
-        <div class="empty"></div>
+        <div class="quickPickForm">
+          <div class="empty"></div>
+          <input type="text" class="quickpickInput" id="qpInput1" placeholder="QP1"></input>
+          <div class="empty"></div>
+          <input type="text" class="quickpickInput" id="qpInput2" placeholder="QP2"></input>
+          <div class="empty"></div>
+          <input type="text" class="quickpickInput" id="qpInput3" placeholder="QP3"></input>
+          <div class="empty"></div>
+          <input type="text" class="quickpickInput" id="qpInput4" placeholder="QP4"></input>
+          <div class="empty"></div>
+          <input type="text" class="quickpickInput" id="qpInput5" placeholder="QP5"></input>
+          <div class="empty"></div>
+          <input type="text" class="quickpickInput" id="qpInputMega" placeholder="Mega"></input>
+          <div class="empty"></div>
         </div>
-        <button id="buttonQP" type="submit">Feeling Lucky?</button>
+        <div class="quickpickButton">
+          <div class="empty"></div>
+          <button id="buttonQP" type="submit"></button>
+          <div class="empty"></div>
+        </div>
       </form>
-      <div class="gameQPdiv hideQP">
-          <div class="empty hideQP"></div>
-          <div class="ballbox hideQP">
-            <div class="ball hideQP" id="qpBall1">
-              <p>X</p>
+      <div class="quickpickOutput ">
+          <div class="empty"></div>
+          <div class="ballbox">
+            <div class="ballCircle" id="qpBall1">
+              <p>$</p>
             </div>
           </div>
-          <div class="empty hideQP"></div>
-          <div class="ballbox hideQP">
-            <div class="ball hideQP" id="qpBall2">
-              <p>22</p>
+          <div class="empty"></div>
+          <div class="ballbox">
+            <div class="ballCircle" id="qpBall2">
+              <p>$</p>
             </div>
           </div>
-          <div class="empty hideQP"></div>
-          <div class="ballbox hideQP">
-            <div class="ball hideQP" id="qpBall3">
-              <p>X</p>
+          <div class="empty"></div>
+          <div class="ballbox">
+            <div class="ballCircle" id="qpBall3">
+              <p>$</p>
             </div>
           </div>
-          <div class="empty hideQP"></div>
-          <div class="ballbox hideQP">
-            <div class="ball hideQP" id="qpBall4">
-              <p>X</p>
+          <div class="empty"></div>
+          <div class="ballbox">
+            <div class="ballCircle" id="qpBall4">
+              <p>$</p>
             </div>
           </div>
-          <div class="empty hideQP"></div>
-          <div class="ballbox hideQP">
-            <div class="ball hideQP" id="qpBall5">
-              <p>X</p>
+          <div class="empty"></div>
+          <div class="ballbox">
+            <div class="ballCircle" id="qpBall5">
+              <p>$</p>
             </div>
           </div>
-          <div class="empty hideQP"></div>
-          <div class="ballbox hideQP">
-            <div class="megaball hideQP" id="qpMegaBall" >
-              <p>X</p>
+          <div class="empty"></div>
+          <div class="ballbox">
+            <div class="ballMegaCircle" id="qpMegaBall" >
+              <p>$</p>
             </div>
           </div>
-          <div class="empty hideQP"></div>
+          <div class="empty"></div>
       </div>
     </div>
-  </section>
+  </main>
 
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>

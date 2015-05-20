@@ -4,7 +4,7 @@ var gameSuper = document.querySelector("#gameSuper");
 var gamePower = document.querySelector("#gamePower");
 var megaBall = document.querySelector("#megaBall");
 var megaNum = document.querySelector("#megaBall p");
-var jackpotAmount = $(".jackpot p");
+var jackpotAmount = $(".nextJackpotAmount p");
 var ball1Num = $("#ball1 p");
 var ball2Num = $("#ball2 p");
 var ball3Num = $("#ball3 p");
@@ -261,12 +261,12 @@ function QPFormSubmitted (e) {
   var qpNumbers = [];
   var userEnteredQPNumbers = [];
 
-  qpNumbers.push(createQPNumbers($("#QP1").val(),0,userEnteredQPNumbers));
-  qpNumbers.push(createQPNumbers($("#QP2").val(),0,userEnteredQPNumbers));
-  qpNumbers.push(createQPNumbers($("#QP3").val(),0,userEnteredQPNumbers));
-  qpNumbers.push(createQPNumbers($("#QP4").val(),0,userEnteredQPNumbers));
-  qpNumbers.push(createQPNumbers($("#QP5").val(),0,userEnteredQPNumbers));
-  qpNumbers.push(createQPNumbers($("#QP6").val(),1,userEnteredQPNumbers));
+  qpNumbers.push(createQPNumbers($("#qpInput1").val(),0,userEnteredQPNumbers));
+  qpNumbers.push(createQPNumbers($("#qpInput2").val(),0,userEnteredQPNumbers));
+  qpNumbers.push(createQPNumbers($("#qpInput3").val(),0,userEnteredQPNumbers));
+  qpNumbers.push(createQPNumbers($("#qpInput4").val(),0,userEnteredQPNumbers));
+  qpNumbers.push(createQPNumbers($("#qpInput5").val(),0,userEnteredQPNumbers));
+  qpNumbers.push(createQPNumbers($("#qpInputMega").val(),1,userEnteredQPNumbers));
   var status = validateQPNumbersAreIntegers(userEnteredQPNumbers);
   if (status == 0) {
     status = validateQPNumbersAreInRange(userEnteredQPNumbers);

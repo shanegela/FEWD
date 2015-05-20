@@ -4,51 +4,13 @@ html {
   font-size:12pt;
 }
 
-header {
-  background-color:#C4C4C4;
-  padding:10px 30px;
-  margin: 0px;
-  overflow:auto;
-  position:fixed;
-    top:0;
-    left:0;
-  width: 100%;
-  z-index:999;
-}
-
-header a {
-  color: white;
-  text-decoration: none;
-}
-
 body {
-  margin:0;
-}
-nav {
-  float:right;
-  -webkit-float:right;
-  -moz-float:right;
-  padding: 20px 50px 0 0;
-}
-.navList {
-  display: -webkit-box;
-  display: -moz-box;
-  display:flex;
-  align-items:center;
-  list-style:none;
-  padding-top: 0;
-  margin: 0;
-  }
-.navList li {
-  margin: 0 0 0 30px;
-  vertical-align:middle;
+  margin:10px 0;
 }
 
-section {
-  margin: 150 0;
-}
-.maindiv, .gamediv, .quickpick {
+.section {
   width:100%;
+  min-height:230px;
   padding:30px 0px;
   margin:0;
   background: linear-gradient(#36C5F4,#ffffff);
@@ -61,29 +23,15 @@ section {
   -webkit-box-sizing: border-box;
 }
 
-.gameQPdiv {
-  width:100%;
-  padding:30px 0px;
-  margin:0;
-  box-sizing: border-box;
-/*background: linear-gradient(#36C5F4,#ffffff);
-  background: -moz-linear-gradient(#36C5F4,#ffffff);
-  background: -webkit-linear-gradient(#36C5F4,#ffffff);
-  border-radius:20px;
-*/
-  overflow:auto;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-}
-
-.gamediv, .qpdiv, .gameQPdiv {
+.drawGame,
+.winningNumbers,
+.quickpickOutput,
+.quickPickForm,
+.quickpickButton
+{
   display: -webkit-box;
   display: -moz-box;
-  display:flex;
-}
-
-.hideQP {
-/*  display:none; */
+  display: flex;
 }
 
 .empty {
@@ -91,18 +39,19 @@ section {
   -webkit-box-flex:1;
   -moz-box-flex:1;
 }
+
 .gamebox {
   width: 200px;
   height: 200px;
   margin: 0px 10px;
 }
+
 .ballbox {
   width: 125px;
   height: 125px;
   margin: 0px 10px;
 }
-
-.circle {
+.gameCircle {
   width:100%;
   border-radius: 50%;
   padding-bottom:100%;
@@ -115,13 +64,15 @@ section {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
 }
-.circle:hover {
+
+.gameCircle:hover {
   background: #F59634;
   box-shadow: inset -25px -25px 30px rgba(206, 98, 38, .7);
   webkit-box-shadow: inset -25px -25px 30px rgba(206, 98, 38, .7);
   moz-box-shadow: inset -25px -25px 30px rgba(206, 98, 38, .7);
 }
-.circle img {
+
+.gameCircle img {
   width: 80%;
   height: auto;
   position:absolute;
@@ -131,7 +82,8 @@ section {
   -webkit-transform: translate(-50%, -50%);
   -moz-transform: translate(-50%, -50%);
 }
-.jackpot {
+
+.nextJackpotAmount {
   border: 1px solid black;
   box-shadow: 0px 0px 20px slategray;
   -moz-box-shadow: 0px 0px 20px slategray;
@@ -152,7 +104,8 @@ section {
   font-weight:bold;
   font-family:digital, courier;
 }
-.ball, .megaball {
+
+.ballCircle, .ballMegaCircle {
   width:100%;
   border-radius: 50%;
   background: white;
@@ -160,14 +113,15 @@ section {
   -moz-box-shadow: inset -25px -25px 30px rgba(192, 192, 192, .7);
   -webkit-box-shadow: inset -25px -25px 30px rgba(192, 192, 192, .7);
 }
-.megaball {
+
+.ballMegaCircle {
   background: #1A4199;
   box-shadow: inset -25px -25px 30px rgba(11, 33, 82,.7);
   -webkit-box-shadow: inset -25px -25px 30px rgba(11, 33, 82,.7);
   -moz-box-shadow: inset -25px -25px 30px rgba(11, 33, 82,.7);
 }
 
-.ball:after, .megaball:after {
+.ballCircle:after, .ballMegaCircle:after {
     content: "";
     display: block;
     width: 100%;
@@ -178,7 +132,7 @@ section {
     border-radius: 50%;
 }
 
-.ball p, .megaball p {
+.ballCircle p, .ballMegaCircle p {
   float:left;
   width:100%;
   padding-top:50%;
@@ -189,21 +143,29 @@ section {
   font-size:40px;
   font-size:4vw;
 }
-.megaball p {
+
+.ballMegaCircle p {
   color:white;
 }
-.QP {
+
+.quickpickInput {
   width: 125px;
   margin: 0px 10px;
   border-radius: 10px;
   text-align: center;
   padding: 10px;
+  outline:none;
 }
+
 #buttonQP {
-  text-align:center;
-  margin: 30px auto;
+  margin: 30px 0px;
+  width: 205.5px;
+  height: 62.6px;
   border-radius: 10px;
   text-align: center;
-  padding: 10px;
-  display: block;
+  background-image:url(images/feelingLucky.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-color:#C0C0C0;
+  outline:none;
 }
