@@ -67,6 +67,7 @@ function setGame (newGameId) {
   setMinMax(newGameId);
   resetQuickPick(newGameId);
   GameId = newGameId;
+  localStorage.setItem("gameId",GameId.toString());
 }
 
 function powerClicked (e) {
@@ -338,5 +339,12 @@ gamePower.addEventListener("click",powerClicked);
 qpForm.on("submit",QPFormSubmitted);
 
 $( document ).ready(function() {
-    powerClicked();
+  var lastGameId = parseInt(localStorage.getItem("gameId"));
+    if (lastGameId === 2) {
+      megaClicked();
+    } else if (lastGameId === 3) {
+      superClicked();
+    } else {
+      powerClicked();
+    }
 });
