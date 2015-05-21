@@ -71,3 +71,22 @@ https://developers.facebook.com/docs/javascript/quickstart/v2.3
 Maps ****************************************************************
 leaflet
 geoJSON:  robgaston/sf_bike_routes.geojson
+
+
+Call Backs ********************
+Pattern 1:
+callBigFunction("...", {<"options object">});
+Example:
+  $.AJAX({
+    success: FN(),
+    error:...
+    header:...
+  })
+
+Pattern 2: wiring up function to be called when something happens
+el.addEventListener("click",FN); -> FN(e): function gets the event
+$.get("http...",FN); -> FN(response): function gets the response
+feature.on("click".FN); -> FN(?) -> to determine what gets passed to the function
+  1. turn on debugger
+  2. or read documentation
+setTimeout(FN,1000); -> calls function after 1000ms
