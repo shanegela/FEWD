@@ -37,7 +37,7 @@ var megaGameId = 2;
 var superGameId = 3;
 
 var GameId = powerGameId;
-var qpForm = $("#quickPickForm");
+var qpForm = $("#quickpickForm");
 
 function setMinMax (newGameId) {
   if (newGameId == 1) {

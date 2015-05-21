@@ -1,6 +1,5 @@
 <!-- TO DO
 * move scripts to top
-* add navigation links
 * refactor and add comments
 -->
 
@@ -14,23 +13,26 @@
       alt=""
       width="169px"
       height="81px">
-<!--
+
     <nav>
       <ul class="navList">
         <li>
-          <a href="index.html">About ACME Corp</a>
+          <a href="#secDrawGame">Games</a>
         </li>
         <li>
-          <a href="products.html">Products</a>
+          <a href="#secNextJackpot">Jackpot</a>
         </li>
         <li>
-          <a class="SignUp" href="signup.html">Sign Up</a>
+          <a href="#secWinningNumbers">WinningNumbers</a>
+        </li>
+        <li>
+          <a href="#secQuickpick">Quickpick</a>
         </li>
       </ul>
     </nav>
--->
   </header>
   <main>
+    <span class="anchor" id="secDrawGame"></span>
     <div class="section drawGame">
         <div class="empty"></div>
         <div class="gamebox">
@@ -61,11 +63,13 @@
         </div>
         <div class="empty"></div>
     </div>
+    <span class="anchor" id="secNextJackpot"></span>
     <div class="section nextJackpot">
       <div class="nextJackpotAmount">
         <p>---,---,---</p>
       </div>
     </div>
+    <span class="anchor" id="secWinningNumbers"></span>
     <div class="section winningNumbers">
         <div class="empty"></div>
         <div class="ballbox">
@@ -105,8 +109,9 @@
         </div>
         <div class="empty"></div>
     </div>
+    <span class="anchor" id="secQuickpick"></span>
     <div class="section">
-      <form id="quickPickForm" action="index.html" method="post">
+      <form id="quickpickForm" action="index.html" method="post">
         <div class="quickpickInput">
           <div class="empty"></div>
           <input type="text" class="quickpickInputField" id="qpInput1" placeholder="QP1"></input>
@@ -169,7 +174,7 @@
       </div>
     </div>
   </main>
-
+  <footer></footer>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <script src="all.js"></script>
