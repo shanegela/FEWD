@@ -43,8 +43,8 @@ nav {
 
 .anchor{
   display: block;
-  height: 101px; /*same height as header*/
-  margin-top: -101px; /*same height as header*/
+  height: 125px; /*same height as header*/
+  margin-top: -125px; /*same height as header*/
   visibility: hidden;
 }
 
@@ -52,7 +52,7 @@ footer {
   height:400px;
 }
 main {
-  margin: 120px 0px 0px 0px;
+  margin: 125px 0px 0px 0px;
 }
 .section {
   width:100%;
