@@ -98,7 +98,8 @@ function powerClicked (e) {
   qpMegaBall.style.setProperty("box-shadow","inset -25px -25px 30px rgba(101, 17, 19,.7)");
   qpMegaBall.style.setProperty("-webkit-box-shadow","inset -25px -25px 30px rgba(101, 17, 19,.7)");
   qpMegaBall.style.setProperty("-moz-box-shadow","inset -25px -25px 30px rgba(101, 17, 19,.7)");
-  $.get("http://calservice.calottery.com/api/drawgames/12",updateLotto);
+  //$.get("http://calservice.calottery.com/api/drawgames/12",updateLotto);
+  $.getJSON("http://proxy.avandamiri.com/get?url=http://calservice.calottery.com/api/drawgames/12",updateLotto);
   setGame(powerGameId);
 }
 
@@ -111,7 +112,8 @@ function megaClicked (e) {
   qpMegaBall.style.setProperty("box-shadow","inset -25px -25px 30px rgba(11, 33, 82,.7)");
   qpMegaBall.style.setProperty("-webkit-box-shadow","inset -25px -25px 30px rgba(11, 33, 82,.7)");
   qpMegaBall.style.setProperty("-moz-box-shadow","inset -25px -25px 30px rgba(11, 33, 82,.7)");
-  $.get("http://calservice.calottery.com/api/drawgames/15",updateLotto);
+  //$.get("http://calservice.calottery.com/api/drawgames/15",updateLotto);
+  $.getJSON("http://proxy.avandamiri.com/get?url=http://calservice.calottery.com/api/drawgames/15",updateLotto);
   setGame(megaGameId);
 }
 
@@ -124,7 +126,8 @@ function superClicked (e) {
   qpMegaBall.style.setProperty("box-shadow","inset -25px -25px 30px rgba(201, 80, 14,.7)");
   qpMegaBall.style.setProperty("-webkit-box-shadow","inset -25px -25px 30px rgba(201, 80, 14,.7)");
   qpMegaBall.style.setProperty("-moz-box-shadow","inset -25px -25px 30px rgba(201, 80, 14,.7)");
-  $.get("http://calservice.calottery.com/api/drawgames/8",updateLotto);
+  //$.get("http://calservice.calottery.com/api/drawgames/8",updateLotto);
+  $.getJSON("http://proxy.avandamiri.com/get?url=http://calservice.calottery.com/api/drawgames/8",updateLotto);
   setGame(superGameId);
 }
 
