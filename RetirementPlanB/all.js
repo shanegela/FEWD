@@ -68,6 +68,25 @@ function setGame (newGameId) {
   resetQuickPick(newGameId);
   GameId = newGameId;
   localStorage.setItem("gameId",GameId.toString());
+
+  // set selected game logo in header
+  if (GameId == 1) {
+    $("#selectedGame").attr("src","images/powerball.png");
+    $("#selectedGame").attr("alt","Powerball Logo");
+    $("#selectedGame").attr("width","169px");
+    $("#selectedGame").attr("height","81px");
+  } else if (GameId == 2) {
+    $("#selectedGame").attr("src","images/mega.png");
+    $("#selectedGame").attr("alt","Mega Millions Logo");
+    $("#selectedGame").attr("width","155px");
+    $("#selectedGame").attr("height","81px");
+  } else  {
+    $("#selectedGame").attr("src","images/super.png");
+    $("#selectedGame").attr("alt","SuperLotto Plus Logo");
+    $("#selectedGame").attr("width","214px");
+    $("#selectedGame").attr("height","81px");
+  }
+
 }
 
 function powerClicked (e) {
@@ -339,12 +358,15 @@ gamePower.addEventListener("click",powerClicked);
 qpForm.on("submit",QPFormSubmitted);
 
 $( document ).ready(function() {
-  var lastGameId = parseInt(localStorage.getItem("gameId"));
-    if (lastGameId === 2) {
-      megaClicked();
-    } else if (lastGameId === 3) {
-      superClicked();
-    } else {
-      powerClicked();
-    }
+  var lastGameId = 1;
+  if (localStorage) {
+    var lastGameId = parseInt(localStorage.getItem("gameId"));
+  }
+  if (lastGameId === 2) {
+    megaClicked();
+  } else if (lastGameId === 3) {
+    superClicked();
+  } else {
+    powerClicked();
+  }
 });
