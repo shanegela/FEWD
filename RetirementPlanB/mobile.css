@@ -37,6 +37,14 @@ header {
   margin-top: 247px;
 }
 
+#nextJackpotDrawDate,
+#winningNumbersDrawDate,
+#quickpickDrawDate
+{
+  font-size:10px;
+  font-size: 3vw;
+}
+
 footer {
   height:200px;
 }

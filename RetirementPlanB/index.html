@@ -1,7 +1,6 @@
 <!-- TO DO
 * move scripts to top
 * refactor and add comments
-* Add draw date and next draw date
 -->
 
 <head>
@@ -61,11 +60,12 @@
     <div class="section nextJackpot">
       <div class="nextJackpotContainer">
         <p id = "nextJackpotAmount">---,---,---</p>
-        <p id="nextJackpotDrawDate"></p>
       </div>
+      <p id="nextJackpotDrawDate"></p>
     </div>
     <span class="anchor" id="secWinningNumbers"></span>
-    <div class="section winningNumbers">
+    <div class="section">
+      <div class="winningNumbers">
         <div class="empty"></div>
         <div class="ballbox">
           <div class="ballCircle" id="ball1">
@@ -103,6 +103,8 @@
           </div>
         </div>
         <div class="empty"></div>
+      </div>
+      <p id = "winningNumbersDrawDate"></p>
     </div>
     <span class="anchor" id="secQuickpick"></span>
     <div class="section">
@@ -167,6 +169,7 @@
           </div>
           <div class="empty"></div>
       </div>
+      <p id = "quickpickDrawDate"></p>
     </div>
   </main>
   <footer></footer>

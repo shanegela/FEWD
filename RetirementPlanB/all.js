@@ -142,11 +142,20 @@ function get(url, success) {
   xhr.send();
 }
 
+function getDateFormatted(drawDate) {
+  var drawDateYear = drawDate.substring(0,4);
+  var drawDateMonth = drawDate.substring(5,7);
+  var drawDateDay = drawDate.substring(8,10);
+  var drawDateFormatted = drawDateMonth + "/" + drawDateDay + "/" + drawDateYear;
+  return drawDateFormatted;
+
+}
+
 function updateLotto(results) {
   var winningNumbers = results.games[0].draws[0].winningNumbers;
   var gamePotAmount = results.games[0].nextJackpot.jackpotAmount;
-  var drawDate = results.games[0].draws[0].drawDate;
-  var nextDrawDate = results.games[0].nextJackpot.drawDate;
+  var drawDate = getDateFormatted(results.games[0].draws[0].drawDate);
+  var nextDrawDate = getDateFormatted(results.games[0].nextJackpot.drawDate);
   var winningBalls = [];
   winningBalls.push(parseInt(winningNumbers[0]));
   winningBalls.push(parseInt(winningNumbers[1]));
@@ -162,7 +171,9 @@ function updateLotto(results) {
   ball5Num.text(winningBalls[4]);
   megaNum.textContent=winningNumbers[5];
   jackpotAmount.text(formatNumber(gamePotAmount));
-  //$("#nextJackpotDrawDate").text(nextDrawDate);
+  $("#nextJackpotDrawDate").text("Next Draw Date: " + nextDrawDate);
+  $("#winningNumbersDrawDate").text("Winning Numbers for Date: "+ drawDate);
+  $("#quickpickDrawDate").text("Next Draw Date: " + nextDrawDate);
 }
 
 function validateQPNumbersAreIntegers(QPNumbers) {
