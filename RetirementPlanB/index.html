@@ -1,25 +1,18 @@
 <!-- TO DO
 * move scripts to top
 * refactor and add comments
-* update navigation links to font
+* Add draw date and next draw date
 -->
 
 <head>
   <title>Retirement Plan B</title>
   <link rel="stylesheet" href="all.css" media="all">
+  <link rel="stylesheet" href="mobile.css" media="(max-width: 510px)">
 </head>
 <body>
   <header>
-    <img id="selectedGame" src=""
-      alt=""
-      width="169px"
-      height="81px">
-
     <nav>
       <ul class="navList">
-        <li>
-          <a href="#secDrawGame">Games</a>
-        </li>
         <li>
           <a href="#secNextJackpot">Jackpot</a>
         </li>
@@ -38,7 +31,7 @@
         <div class="empty"></div>
         <div class="gamebox">
           <div id ="gamePower" class="gameCircle" >
-            <img
+            <img id="imgPower"
               src="images/powerball.png"
               alt="Powerball Lottery"
             />
@@ -47,7 +40,7 @@
         <div class="empty"></div>
         <div class="gamebox" >
           <div id ="gameMega" class="gameCircle">
-            <img
+            <img id="imgMega"
               src="images/mega.png"
               alt="Mega Millions Lottery"
             />
@@ -56,7 +49,7 @@
         <div class="empty"></div>
         <div class="gamebox">
           <div id="gameSuper" class="gameCircle">
-            <img
+            <img id="imgSuper"
               src="images/super.png"
               alt="SuperLotto Plus Lottery"
             />
@@ -66,8 +59,9 @@
     </div>
     <span class="anchor" id="secNextJackpot"></span>
     <div class="section nextJackpot">
-      <div class="nextJackpotAmount">
-        <p>---,---,---</p>
+      <div class="nextJackpotContainer">
+        <p id = "nextJackpotAmount">---,---,---</p>
+        <p id="nextJackpotDrawDate"></p>
       </div>
     </div>
     <span class="anchor" id="secWinningNumbers"></span>

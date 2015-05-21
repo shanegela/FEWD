@@ -1,57 +1,58 @@
 html {
-  background-color: white;
-  font-family: Trebuchet MS;
+  background-color:white;
+  font-family: digital, courier;
   font-size:12pt;
 }
-
 header {
-  background-color:#C4C4C4;
-  padding:10px 30px;
+  background-color:rgba(0,0,0,0.5);
+  padding: 0px;
   margin: 0px;
   overflow:auto;
   position:fixed;
-    top:0;
+    top:260;
     left:0;
   width: 100%;
   z-index: 2147483647; /*max integer*/
-  height:101px;
+  min-height:50px;
+  text-align: center;
+  border-radius: 0px 0px 20px 20px;
 }
-header img {
-  float:left;
+
+#imgPower,
+#imgMega,
+#imgSuper {
+  opacity:1;
 }
+
 header a {
   color: white;
   text-decoration: none;
 }
-nav {
-  float:right;
-  padding: 40px 50px 0 0;
-}
+
 .navList {
-  display: -webkit-flex;
-  display:flex;
-  align-items:center;
   list-style:none;
-  padding-top: 0;
+  padding-top: 15px;
   margin: 0;
   }
 .navList li {
-  margin: 0 0 0 30px;
+  margin: 0px 30px;
   vertical-align:middle;
+  display:inline;
 }
 
 .anchor{
   display: block;
-  height: 125px; /*same height as header*/
-  margin-top: -125px; /*same height as header*/
+  height: 315px; /*same height as header*/
+  margin-top: -315px; /*same height as header*/
   visibility: hidden;
 }
 
 footer {
   height:400px;
+  visibility: hidden;
 }
 main {
-  margin: 125px 0px 0px 0px;
+  margin:0px;
 }
 .section {
   width:100%;
@@ -77,6 +78,17 @@ main {
   display: -webkit-box;
   display: -moz-box;
   display: flex;
+}
+
+.drawGame {
+  height: 310px;
+  position:fixed;
+    top:0;
+    left:0;
+}
+
+.nextJackpot {
+  margin-top: 307px;
 }
 
 .empty {
@@ -128,7 +140,7 @@ main {
   -moz-transform: translate(-50%, -50%);
 }
 
-.nextJackpotAmount {
+.nextJackpotContainer {
   border: 1px solid black;
   box-shadow: 0px 0px 20px slategray;
   -moz-box-shadow: 0px 0px 20px slategray;

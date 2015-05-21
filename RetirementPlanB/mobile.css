@@ -1,0 +1,42 @@
+header {
+  position:fixed;
+    top:180;
+    left:0;
+  }
+
+.navList {
+  padding: 10px 0px;
+}
+
+.navList li {
+  margin: 0px;
+  display:block;
+}
+.anchor{
+  height: 255px; /*same height as header*/
+  margin-top: -255px; /*same height as header*/
+}
+
+.section {
+  min-height:150px;
+}
+
+.drawGame {
+  height: 250px;
+  position:fixed;
+    top:0;
+    left:0;
+}
+
+.gamebox {
+  width: 150px;
+  height: 150px;
+}
+
+.nextJackpot {
+  margin-top: 247px;
+}
+
+footer {
+  height:200px;
+}

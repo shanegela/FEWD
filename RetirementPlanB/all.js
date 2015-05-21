@@ -2,7 +2,7 @@
 var gameMega = document.querySelector("#gameMega");
 var gameSuper = document.querySelector("#gameSuper");
 var gamePower = document.querySelector("#gamePower");
-var jackpotAmount = $(".nextJackpotAmount p");
+var jackpotAmount = $("#nextJackpotAmount");
 
 var ball1Num = $("#ball1 p");
 var ball2Num = $("#ball2 p");
@@ -69,27 +69,26 @@ function setGame (newGameId) {
   GameId = newGameId;
   localStorage.setItem("gameId",GameId.toString());
 
-  // set selected game logo in header
   if (GameId == 1) {
-    $("#selectedGame").attr("src","images/powerball.png");
-    $("#selectedGame").attr("alt","Powerball Logo");
-    $("#selectedGame").attr("width","169px");
-    $("#selectedGame").attr("height","81px");
+    $("#imgPower").css("opacity",1);
+    $("#imgMega").css("opacity",0.4);
+    $("#imgSuper").css("opacity",0.4);
   } else if (GameId == 2) {
-    $("#selectedGame").attr("src","images/mega.png");
-    $("#selectedGame").attr("alt","Mega Millions Logo");
-    $("#selectedGame").attr("width","155px");
-    $("#selectedGame").attr("height","81px");
+    $("#imgPower").css("opacity",0.4);
+    $("#imgMega").css("opacity",1);
+    $("#imgSuper").css("opacity",0.4);
   } else  {
-    $("#selectedGame").attr("src","images/super.png");
-    $("#selectedGame").attr("alt","SuperLotto Plus Logo");
-    $("#selectedGame").attr("width","214px");
-    $("#selectedGame").attr("height","81px");
+    $("#imgPower").css("opacity",0.4);
+    $("#imgMega").css("opacity",0.4);
+    $("#imgSuper").css("opacity",1);
   }
 
 }
 
 function powerClicked (e) {
+  //$.get("http://calservice.calottery.com/api/drawgames/12",updateLotto);
+  $.getJSON("http://proxy.avandamiri.com/get?url=http://calservice.calottery.com/api/drawgames/12",updateLotto);
+  setGame(powerGameId);
   megaBall.style.setProperty("background","#CA1F26");
   megaBall.style.setProperty("box-shadow","inset -25px -25px 30px rgba(101, 17, 19,.7)");
   megaBall.style.setProperty("-webkit-box-shadow","inset -25px -25px 30px rgba(101, 17, 19,.7)");
@@ -98,12 +97,12 @@ function powerClicked (e) {
   qpMegaBall.style.setProperty("box-shadow","inset -25px -25px 30px rgba(101, 17, 19,.7)");
   qpMegaBall.style.setProperty("-webkit-box-shadow","inset -25px -25px 30px rgba(101, 17, 19,.7)");
   qpMegaBall.style.setProperty("-moz-box-shadow","inset -25px -25px 30px rgba(101, 17, 19,.7)");
-  //$.get("http://calservice.calottery.com/api/drawgames/12",updateLotto);
-  $.getJSON("http://proxy.avandamiri.com/get?url=http://calservice.calottery.com/api/drawgames/12",updateLotto);
-  setGame(powerGameId);
 }
 
 function megaClicked (e) {
+  //$.get("http://calservice.calottery.com/api/drawgames/15",updateLotto);
+  $.getJSON("http://proxy.avandamiri.com/get?url=http://calservice.calottery.com/api/drawgames/15",updateLotto);
+  setGame(megaGameId);
   megaBall.style.setProperty("background","#1A4199");
   megaBall.style.setProperty("box-shadow","inset -25px -25px 30px rgba(11, 33, 82,.7)");
   megaBall.style.setProperty("-webkit-box-shadow","inset -25px -25px 30px rgba(11, 33, 82,.7)");
@@ -112,12 +111,12 @@ function megaClicked (e) {
   qpMegaBall.style.setProperty("box-shadow","inset -25px -25px 30px rgba(11, 33, 82,.7)");
   qpMegaBall.style.setProperty("-webkit-box-shadow","inset -25px -25px 30px rgba(11, 33, 82,.7)");
   qpMegaBall.style.setProperty("-moz-box-shadow","inset -25px -25px 30px rgba(11, 33, 82,.7)");
-  //$.get("http://calservice.calottery.com/api/drawgames/15",updateLotto);
-  $.getJSON("http://proxy.avandamiri.com/get?url=http://calservice.calottery.com/api/drawgames/15",updateLotto);
-  setGame(megaGameId);
 }
 
 function superClicked (e) {
+  //$.get("http://calservice.calottery.com/api/drawgames/8",updateLotto);
+  $.getJSON("http://proxy.avandamiri.com/get?url=http://calservice.calottery.com/api/drawgames/8",updateLotto);
+  setGame(superGameId);
   megaBall.style.setProperty("background","#F48A1E");
   megaBall.style.setProperty("box-shadow","inset -25px -25px 30px rgba(201, 80, 14,.7)");
   megaBall.style.setProperty("-webkit-box-shadow","inset -25px -25px 30px rgba(201, 80, 14,.7)");
@@ -126,9 +125,6 @@ function superClicked (e) {
   qpMegaBall.style.setProperty("box-shadow","inset -25px -25px 30px rgba(201, 80, 14,.7)");
   qpMegaBall.style.setProperty("-webkit-box-shadow","inset -25px -25px 30px rgba(201, 80, 14,.7)");
   qpMegaBall.style.setProperty("-moz-box-shadow","inset -25px -25px 30px rgba(201, 80, 14,.7)");
-  //$.get("http://calservice.calottery.com/api/drawgames/8",updateLotto);
-  $.getJSON("http://proxy.avandamiri.com/get?url=http://calservice.calottery.com/api/drawgames/8",updateLotto);
-  setGame(superGameId);
 }
 
 function formatNumber (num) {
@@ -149,6 +145,8 @@ function get(url, success) {
 function updateLotto(results) {
   var winningNumbers = results.games[0].draws[0].winningNumbers;
   var gamePotAmount = results.games[0].nextJackpot.jackpotAmount;
+  var drawDate = results.games[0].draws[0].drawDate;
+  var nextDrawDate = results.games[0].nextJackpot.drawDate;
   var winningBalls = [];
   winningBalls.push(parseInt(winningNumbers[0]));
   winningBalls.push(parseInt(winningNumbers[1]));
@@ -164,6 +162,7 @@ function updateLotto(results) {
   ball5Num.text(winningBalls[4]);
   megaNum.textContent=winningNumbers[5];
   jackpotAmount.text(formatNumber(gamePotAmount));
+  //$("#nextJackpotDrawDate").text(nextDrawDate);
 }
 
 function validateQPNumbersAreIntegers(QPNumbers) {
