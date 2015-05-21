@@ -1,7 +1,10 @@
 header {
+  position:absolute;
+    top:180px;
+    left:0px;
   position:fixed;
-    top:180;
-    left:0;
+    top:180px;
+    left:0px;
   }
 
 .navList {
@@ -41,8 +44,7 @@ header {
 #winningNumbersDrawDate,
 #quickpickDrawDate
 {
-  font-size:10px;
-  font-size: 3vw;
+  font-size:12pt;
 }
 
 footer {

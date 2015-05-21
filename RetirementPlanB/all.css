@@ -8,11 +8,14 @@ header {
   padding: 0px;
   margin: 0px;
   overflow:auto;
-  position:fixed;
-    top:260;
-    left:0;
+  position:absolute; /*ie does not recognized position fixed;*/
+    top:260px;
+    left:0px;
+  position: fixed;
+    top:260px;
+    left:0px;
   width: 100%;
-  z-index: 2147483647; /*max integer*/
+  z-index: 2147483647;
   min-height:50px;
   text-align: center;
   border-radius: 0px 0px 20px 20px;
@@ -45,6 +48,7 @@ header a {
   height: 315px; /*same height as header*/
   margin-top: -315px; /*same height as header*/
   visibility: hidden;
+
 }
 
 footer {
@@ -75,9 +79,12 @@ main {
 .quickpickInput,
 .quickpickButton
 {
-  display: -webkit-box;
-  display: -moz-box;
-  display: flex;
+  display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+	display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+	display: -ms-flexbox;      /* TWEENER - IE 10 */
+	display: -webkit-flex;     /* NEW - Chrome */
+	display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
+
 }
 
 .drawGame {
@@ -92,9 +99,12 @@ main {
 }
 
 .empty {
-  flex:1;
-  -webkit-box-flex:1;
-  -moz-box-flex:1;
+  -webkit-box-flex: 1;      /* OLD - iOS 6-, Safari 3.1-6 */
+	-moz-box-flex: 1;         /* OLD - Firefox 19- */
+	-webkit-flex: 1;          /* Chrome */
+	-ms-flex: 1;              /* IE 10 */
+	flex: 1;                  /* NEW, Spec - Opera 12.1, Firefox 20+ */
+
 }
 
 .gamebox {
@@ -115,8 +125,8 @@ main {
   position:relative;
   background: #F48A1E;
   box-shadow: inset -25px -25px 30px rgba(201, 80, 14, .7);
-  webkit-box-shadow: inset -25px -25px 30px rgba(201, 80, 14, .7);
-  moz-box-shadow: inset -25px -25px 30px rgba(201, 80, 14, .7);
+  -webkit-box-shadow: inset -25px -25px 30px rgba(201, 80, 14, .7);
+  -moz-box-shadow: inset -25px -25px 30px rgba(201, 80, 14, .7);
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -125,8 +135,8 @@ main {
 .gameCircle:hover {
   background: #F59634;
   box-shadow: inset -25px -25px 30px rgba(206, 98, 38, .7);
-  webkit-box-shadow: inset -25px -25px 30px rgba(206, 98, 38, .7);
-  moz-box-shadow: inset -25px -25px 30px rgba(206, 98, 38, .7);
+  -webkit-box-shadow: inset -25px -25px 30px rgba(206, 98, 38, .7);
+  -moz-box-shadow: inset -25px -25px 30px rgba(206, 98, 38, .7);
 }
 
 .gameCircle img {

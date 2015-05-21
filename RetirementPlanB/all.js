@@ -1,4 +1,3 @@
-
 var gameMega = document.querySelector("#gameMega");
 var gameSuper = document.querySelector("#gameSuper");
 var gamePower = document.querySelector("#gamePower");
@@ -67,8 +66,9 @@ function setGame (newGameId) {
   setMinMax(newGameId);
   resetQuickPick(newGameId);
   GameId = newGameId;
-  localStorage.setItem("gameId",GameId.toString());
-
+  if (localStorage) {
+    localStorage.setItem("gameId",GameId.toString());
+  }
   if (GameId == 1) {
     $("#imgPower").css("opacity",1);
     $("#imgMega").css("opacity",0.4);
