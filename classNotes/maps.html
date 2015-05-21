@@ -1,0 +1,43 @@
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+
+<!-- create container with map.
+     must contain ID
+-->
+<div id="map">
+</div>
+
+<style>
+#map {
+/* must set height of div to see map */
+  position: fixed;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+</style>
+
+<script>
+<!-- leaflet calls use "L" -->
+  var map =  L.map('map',{
+    center: [37.76,-122.42], // coordinate pair, to focus on coordinate
+    //map.getCenter() from inspect element
+    zoom: 13 // zoom level: 0: most zoomed out, larger number zooms in
+    //map.getZoom() from inspect element
+  });
+  var url = 'https://{s}.tiles.mapbox.com/v4/shanegela.cf1b2710/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoic2hhbmVnZWxhIiwiYSI6IkhRVTItVG8ifQ.vFJeTtTrnDGOzdQ8oZNDVw';
+
+  var tileLayer = L.tileLayer(url,{
+    attribution: '<a href="http://www.mapbox.com/about/amps/" target="_blank">Terms &amp; Feedback</a>'
+  });
+
+  tileLayer.addTo(map);
+
+  var marker = L.marker([37.76,-122.42]);
+  marker.addTo(map);
+  marker.bindPopup('Hello World');//text pop up
+
+</script>

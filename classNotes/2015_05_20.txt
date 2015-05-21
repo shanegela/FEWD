@@ -1,0 +1,73 @@
+Responsive Styling **************************************************
+<link rel="stylesheet" href="file.css" media="___">
+link:   link to external file
+rel:    relationship between html and external file
+href:   path or url to file
+media:  tells the browser when to use these styles, media-query
+
+Media-Query Types
+- screen (desktop)
+- print (printer)
+- max-width (starting with desktop, then next targetting mobile)
+- min-width: (starting with mobile, then next targetting desktop)
+- all
+
+Best Practice for Styling
+1. decide which is your base
+2. then in your secondary style you do the overrides in the base style
+
+Local Storage **************************************************************
+* limited size: 5MB
+
+localStorage.setItem(<key>,<value>);
+localStorage.getItem(<key>);
+localStorage.getItem(<key>);
+
+to store an object like an array: JSON.stringify
+- serialize the string: convert to JSON
+to get an object like an array: JSON.parse
+
+OAuth ********************************************************************
+Browser  <->  OMDB (movie database)
+  <parameter>: s: terminator
+  <no authentication>
+
+Authentication categories
+1. no auth: Example: OMDB
+2. API key/token: Example: Pet Finder
+  - you may have to email them or sign up to get the key
+3. OAuth
+  developer key
+  browser: facebook login
+  facebook prompt to login or authorize
+  facebook comes back and gives key & secret for each user
+  then every time you make a request to face book you send
+    - developer key
+    - user key/secret
+
+  library to help with oauth: google "javascript oauth"
+
+
+How to check if localStorage exist ******************************
+- check if localStorage exist: modernizer
+- or if (localStorage)
+
+
+like button by facebook can not be edited because it's root is "iframe" ****
+<iframe src=...>
+  <html>
+    <body>...
+  </html>
+</iframe>
+
+iframe prevents users from changing styles
+but allows another page to load in another page
+
+
+SDK: software developer kit *******************************************
+pulls in code that gives you methods
+https://developers.facebook.com/docs/javascript/quickstart/v2.3
+
+Maps ****************************************************************
+leaflet
+geoJSON:  robgaston/sf_bike_routes.geojson
