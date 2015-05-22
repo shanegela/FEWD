@@ -1,0 +1,15 @@
+Intro (you):  Hi, I'm Angie.  I took this course to broaden my technical skill set.
+
+Intro (project): For my final project, I built a website that will show you the winning numbers 
+and jackpot for three lottery games.  In california, the three draw games with the largest pot are superlotto plus, mega millions, and powerball.
+So the website allows the user to select one of the three draw games.
+It makes a request to the calottery api to get the last winning numbers and the jackpot for the next draw.
+The site will also generate a quickpick ticket for you and you can specify your lucky numbers.
+
+Code:  Some cool parts of the code:
+  1. local storage - stores last selected game
+  2. quickpick feature does validation on integer, range and duplicates
+  3. API call uses a proxy server built by Avand to get around a security error for data coming from a different domain.
+
+Conclude: This is phase 1 of 4 phases.  The next two phases are two build a backend to store the data and run analytics on the numbers.
+And the final phase is to win the lottery.
