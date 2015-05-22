@@ -1,7 +1,3 @@
-<!-- TO DO
-* move scripts to top
-* refactor and add comments
--->
 <!DOCTYPE html>
 <head>
   <title>Retirement Plan B</title>
@@ -13,19 +9,20 @@
     <nav>
       <ul class="navList">
         <li>
-          <a href="#secNextJackpot">Jackpot</a>
+          <a href="#hrefWinningNumbers">WinningNumbers</a>
         </li>
         <li>
-          <a href="#secWinningNumbers">WinningNumbers</a>
+          <a href="#hrefNextJackpot">Jackpot</a>
         </li>
         <li>
-          <a href="#secQuickpick">Quickpick</a>
+          <a href="#hrefQuickpick">Quickpick</a>
         </li>
       </ul>
     </nav>
   </header>
   <main>
-    <span class="anchor" id="secDrawGame"></span>
+    <!-- section for Draw Games: Powerball, Mega Millions, SuperPlus -->
+    <span class="anchor" id="hrefDrawGame"></span>
     <div class="section drawGame">
         <div class="empty"></div>
         <div class="gamebox">
@@ -56,16 +53,10 @@
         </div>
         <div class="empty"></div>
     </div>
-    <span class="anchor" id="secNextJackpot"></span>
-    <div class="section nextJackpot">
-      <div class="nextJackpotContainer">
-        <p id = "nextJackpotAmount">---,---,---</p>
-      </div>
-      <p id="nextJackpotDrawDate"></p>
-    </div>
-    <span class="anchor" id="secWinningNumbers"></span>
-    <div class="section">
-      <div class="winningNumbers">
+    <!-- section for last winning numbers -->
+    <span class="anchor" id="hrefWinningNumbers"></span>
+    <div class="section winningNumbers">
+      <div class="winningNumbersContainer">
         <div class="empty"></div>
         <div class="ballbox">
           <div class="ballCircle" id="ball1">
@@ -106,7 +97,16 @@
       </div>
       <p id = "winningNumbersDrawDate"></p>
     </div>
-    <span class="anchor" id="secQuickpick"></span>
+    <!-- section for jackpot amount on the next draw -->
+    <span class="anchor" id="hrefNextJackpot"></span>
+    <div class="section nextJackpot">
+      <div class="nextJackpotContainer">
+        <p id = "nextJackpotAmount">---,---,---</p>
+      </div>
+      <p id="nextJackpotDrawDate"></p>
+    </div>
+    <!-- section for quickpick generation -->
+    <span class="anchor" id="hrefQuickpick"></span>
     <div class="section">
       <form id="quickpickForm" action="index.html" method="post">
         <div class="quickpickInput">
