@@ -10,7 +10,6 @@ body {
 header, .section {
   padding: 0px;
   margin: 0px;
-  overflow:none;
   width: 100%;
   text-align: center;
   box-sizing: border-box;

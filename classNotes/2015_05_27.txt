@@ -62,3 +62,6 @@ Pseudo-Elements ******************************************
 
 Other ****************************************************
 atom color picker - CMD Shift C
+
+dnsimple
+setup custom domain name with github
