@@ -1,0 +1,32 @@
+<div id="box" class="before">
+</div>
+
+<style>
+  #box {
+    width: 100px;
+    height: 100px;
+    background-color: maroon;
+    position: absolute;
+    transition: all 3s ease-in-out;
+}
+
+#box.before {
+  top: 0;
+  left: 0;
+  opacity: 1;
+}
+
+#box.after {
+/*  top: 200px;
+  left: 800px;
+  opacity: 0.4;
+*/
+  transform: translateX(800px);
+}
+</style>
+<script>
+var box = document.querySelector("#box");
+box.addEventListener("click", function (e) {
+  box.setAttribute("class","after");
+});
+</script>

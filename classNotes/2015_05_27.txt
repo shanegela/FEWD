@@ -1,0 +1,64 @@
+Bootstrap *******************************************
+getbootstrap.com
+
+bootstrap is a library of classes
+
+http://getbootstrap.com/css/#grid
+sizing is for different display sizes. change browser size
+
+option to customize your own build: http://getbootstrap.com/customize/
+
+
+minified - all white space removed to reduce file size
+jscompress.com
+
+
+Animations ******************************************
+
+To move an element from point A to point B
+
+- before CSS animation existed, this was done through javascript by making point A (position absolute left:0) and then add X in a time interval where X gets to Left: 800px.
+- javascript function:
+setInterval (function () {
+  el.style.left = el.style.left + 1;
+}, 100);
+100 is the interval in which the function runs - 100 ms.
+
+easing in/out: not a linear cadence, more life like.  stroll in and speed up. linear is the same speed.
+
+now css has a property: transition
+other css properties: poof, search for animation on developer.mozilla.org
+
+
+css animation library: animate.css
+
+CSS Preprocessors (less/sass) ******************************************
+less is a language that gets turned into CSS
+ - the javascript turns less into css in your browser
+ - ruby can also parse the less into css (sprocket - smooshes all the files together)
+ - manifest file to list files that you need and smooshes it together
+
+less files lets you set variables
+- examples: set variables that set color
+
+mix colors: mix(@eggplan-color, white, 80%)
+spin color spin(#starting-color, @step * 2) -> spin on the color wheel
+
+lesscss.org
+
+
+sass (sass-lang.com)
+- syntax changes: no need for {} and :
+- not really used
+
+scss
+- allows variables, not really used
+
+coffescript
+- different syntax that gets translated to javascript
+
+Pseudo-Elements ******************************************
+
+
+Other ****************************************************
+atom color picker - CMD Shift C
