@@ -1,12 +1,14 @@
-Intro (you):  Hi, I'm Angie.  I took this course to broaden my technical skill set.
+Intro (you):  Hi, everyone. I'm Angie.  For the past ten years I've been developing reports for a financial software company.  I took FEWD to broaden my technical skill set.
 
-Intro (project): For my final project, I built a website that will show you the last winning numbers and next jackpot for three lottery games.  In california, the three draw games with the largest pot are superlotto plus, mega millions, and powerball.
+Intro (project): For my final project, I built a website that shows the last winning numbers and next jackpot amount for three lottery games played in California.  The three draw games with the largest pot are the Powerball, Mega Millions and SuperLotto Plus.
 
-The website allows the user to select one of the three draw games.  Once a game is selected, a request to the calottery api is made. And then the last winning numbers and the jackpot for the next draw is displayed.  The site will also generate a quickpick ticket for you based on the selected game.   Users can also specify lucky numbers for the quickpick generation.
+When the user selects a game, a request to the calottery api is made. Then the winning numbers for the last draw and the jackpot for the next draw is displayed.  The site will also generate quickpick numbers to play. And if you have lucky numbers, you can fill those in and the quickpick generator will fill in the remaining numbers.
 
 Code:  Some cool parts of the code:
-  1. local storage - stores last selected game.  If local storage is not available or it's the first time to the page, the page defaults to the Powerball lottery.
-  2. quickpick feature does validation on integer, range and duplicates
-  3. API call uses a proxy server built by Avand to get around a security error for data coming from a different domain.
+  1.  One of the challenges I had when building this site, is originally I got an error that cross origin is not allowed when making the call to the caLottery API.  This can happen when data from another domain is being received and the response header is missing the "allow-cross-orgin" property.  To work around this issue, Avand created a proxy server for me.  So this sites makes a request to the proxy server passing it the API call.  The proxy server sends the request on and receives the data.  Before sending the data back to the browser,  it inserts the "allow cross origin" into the response header.
 
-Conclusion: This is phase 1 of 4 phases.  The next two phases are two build a backend to store the data and run analytics on the numbers. And the final phase is to win the lottery.
+  2. local storage - The site will store the last selected game in local storage.  So if you close the browser and re-open, the last game you selected is selected.  If local storage is not available or it's the first time to the page, the Powerball is the default game.
+
+  3. quickpick feature has a few validations on the user input. First it validates that the input is a number.  Then it validates that the input is within range for the selected game and ball type.  And it also checks for duplicate numbers.
+
+Conclusion: Building the front end is phase 1 of a 4 phase project.  The next two phases are two build a backend to store historical draw numbers.  And then run analytics to find favorable combinations.  And the last phase is to win the lottery.

@@ -87,7 +87,7 @@ function setBallColor(ball,bkgColor,bxsColor) {
 
 /**********************************************
 Based on the selected draw game
-- set the valid numer ranges
+- set the valid number ranges
 - reset quickpick generate
 - store the gameId into local storage
 - initialize UI for selected game:
@@ -124,7 +124,7 @@ function setGame (newGameId) {
 }
 
 /**********************************************
-Draw Game: Powerball
+Draw Game
 - get data from calottery API
 -   using Avand's proxy server because of error: "Access-Control-Allow-Origin"
 - initialize game attributes
@@ -213,10 +213,7 @@ function validateQPNumbersAreIntegers(QPNumbers) {
   }
 
   if  (notInt != '')  {
-    var alertMessage = 'Stop messing around. This is your financial future.';
-    if (notInt != '') {
-      alertMessage = alertMessage + "The following quick pickball(s) are not integers: " + notInt;
-    }
+    var alertMessage = 'Stop messing around. This is your financial future.  The following quick pickball(s) are not integers: ' + notInt;
     alert(alertMessage);
     status = 1;
   }
@@ -276,7 +273,7 @@ function validateQPNumbersHasNoDuplicates(QPNumbers) {
   for (var i = 0; i < QPNumbers.length; i++) {
     if (QPNumbers[i].isMega == 0) {
       for (var j = 0; j < QPNumbers.length; j++) {
-        if (QPNumbers[i].qpValue == QPNumbers[j].qpValue && i != j && QPNumbers[i].isMega == 0 ) {
+        if (QPNumbers[i].qpValue == QPNumbers[j].qpValue && i != j && QPNumbers[j].isMega == 0 ) {
           status = 1;
         }
       }
@@ -423,7 +420,7 @@ When page is initially loaded,
 $( document ).ready(function() {
   var lastGameId = 1;//Powerball
   if (localStorage) {
-    var lastGameId = parseInt(localStorage.getItem("gameId"));
+    lastGameId = parseInt(localStorage.getItem("gameId"));
   }
   if (lastGameId === 2) {
     megaClicked();
