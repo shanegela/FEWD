@@ -12,10 +12,20 @@
 
 <style>
 .ballParent{
-  display:flex;
+  display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+	display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+	display: -ms-flexbox;      /* TWEENER - IE 10 */
+	display: -webkit-flex;     /* NEW - Chrome */
+	display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
   justify-content: space-around;
+  -webkit-justify-content: space-around;
+  -ms-flex-pack: justify;
   flex-wrap: nowrap;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: none;
   align-content: flex-start;
+  -webkit-align-content: flex-start;
+  -ms-flex-line-pack: start;
   border: 1px solid red;
   padding: 20px;
 }

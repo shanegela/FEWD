@@ -16,8 +16,8 @@ header {
   display:block;
 }
 .anchor{
-  height: 255px; /*same height as header*/
-  margin-top: -255px; /*same height as header*/
+  height: 260px; /*same height as header*/
+  margin-top: -260px; /*same height as header*/
 }
 
 .section {
@@ -37,7 +37,7 @@ header {
 }
 
 .winningNumbers {
-  margin-top: 255px;
+  margin-top: 260px;
 }
 
 #nextJackpotDrawDate,
