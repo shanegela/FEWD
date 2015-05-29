@@ -131,17 +131,14 @@ Draw Game
 **********************************************/
 function powerClicked (e) {
   $.getJSON("http://proxy.avandamiri.com/get?url=http://calservice.calottery.com/api/drawgames/12",updateLotto);
-  setGame(powerGameId);
 }
 
 function megaClicked (e) {
   $.getJSON("http://proxy.avandamiri.com/get?url=http://calservice.calottery.com/api/drawgames/15",updateLotto);
-  setGame(megaGameId);
 }
 
 function superClicked (e) {
   $.getJSON("http://proxy.avandamiri.com/get?url=http://calservice.calottery.com/api/drawgames/8",updateLotto);
-  setGame(superGameId);
 }
 
 /**********************************************
@@ -169,6 +166,8 @@ When API call is successful, call this function to initialize page with
 - next jackpot amount
 **********************************************/
 function updateLotto(results) {
+  var drawGame = results.games[0].name;
+  var drawGameId = powerGameId;
   var winningNumbers = results.games[0].draws[0].winningNumbers;
   var gamePotAmount = results.games[0].nextJackpot.jackpotAmount;
   var drawDate = getDateFormatted(results.games[0].draws[0].drawDate);
@@ -191,6 +190,16 @@ function updateLotto(results) {
   $("#nextJackpotDrawDate").text("Next Draw Date: " + nextDrawDate);
   $("#winningNumbersDrawDate").text("Winning Numbers for Date: "+ drawDate);
   $("#quickpickDrawDate").text("Next Draw Date: " + nextDrawDate);
+
+  if (drawGame == 'SuperLotto Plus') {
+    setGame(superGameId);
+  } else if (drawGame == 'POWERBALL') {
+    setGame(powerGameId);
+  } else {
+    setGame(megaGameId);
+  }
+
+  return
 }
 
 /**********************************************
