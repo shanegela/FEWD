@@ -1,7 +1,7 @@
 /* draw games*/
-var powerGameId = 1;
-var megaGameId = 2;
-var superGameId = 3;
+var powerGameId = 12;
+var megaGameId = 15;
+var superGameId = 8;
 var GameId = powerGameId;
 var gameMega = document.querySelector("#gameMega");
 var gameSuper = document.querySelector("#gameSuper");
@@ -49,10 +49,10 @@ Set the draw game minimum and maximum number range for
 regular balls and the Mega ball
 **********************************************/
 function setMinMax (newGameId) {
-  if (newGameId == 1) {
+  if (newGameId == powerGameId) {
     maxBall = pmaxBall;
     maxMega = pmaxMega;
-  } else if (newGameId == 2) {
+  } else if (newGameId == megaGameId) {
     maxBall = mmaxBall;
     maxMega = mmaxMega;
   } else {
@@ -101,13 +101,13 @@ function setGame (newGameId) {
   if (localStorage) {
     localStorage.setItem("gameId",GameId.toString());
   }
-  if (GameId == 1) {
+  if (GameId == powerGameId) {
     $("#imgPower").css("opacity",1);
     $("#imgMega").css("opacity",0.4);
     $("#imgSuper").css("opacity",0.4);
     setBallColor(megaBall,pMegaBallBackgroundColor,pMegaBallBoxShadowColor);
     setBallColor(qpMegaBall,pMegaBallBackgroundColor,pMegaBallBoxShadowColor);
-  } else if (GameId == 2) {
+  } else if (GameId == megaGameId) {
     $("#imgPower").css("opacity",0.4);
     $("#imgMega").css("opacity",1);
     $("#imgSuper").css("opacity",0.4);
@@ -166,8 +166,8 @@ When API call is successful, call this function to initialize page with
 - next jackpot amount
 **********************************************/
 function updateLotto(results) {
-  var drawGame = results.games[0].name;
-  var drawGameId = powerGameId;
+
+  var drawGameId = results.games[0].number;
   var winningNumbers = results.games[0].draws[0].winningNumbers;
   var gamePotAmount = results.games[0].nextJackpot.jackpotAmount;
   var drawDate = getDateFormatted(results.games[0].draws[0].drawDate);
@@ -191,14 +191,7 @@ function updateLotto(results) {
   $("#winningNumbersDrawDate").text("Winning Numbers for Date: "+ drawDate);
   $("#quickpickDrawDate").text("Next Draw Date: " + nextDrawDate);
 
-  if (drawGame == 'SuperLotto Plus') {
-    setGame(superGameId);
-  } else if (drawGame == 'POWERBALL') {
-    setGame(powerGameId);
-  } else {
-    setGame(megaGameId);
-  }
-
+  setGame(drawGameId);
   return
 }
 
@@ -427,13 +420,13 @@ When page is initially loaded,
   or load default game powerball
 **********************************************/
 $( document ).ready(function() {
-  var lastGameId = 1;//Powerball
+  var lastGameId = powerGameId;
   if (localStorage) {
     lastGameId = parseInt(localStorage.getItem("gameId"));
   }
-  if (lastGameId === 2) {
+  if (lastGameId === megaGameId) {
     megaClicked();
-  } else if (lastGameId === 3) {
+  } else if (lastGameId === superGameId) {
     superClicked();
   } else {
     powerClicked();
